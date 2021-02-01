@@ -1,0 +1,106 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+
+    <section class="producto-page">
+        <div class="container">
+            <div class="row producto-container">
+                <div class="col-md-6 producto-page-imagenes">
+                    <div class="row">
+                        <div class="exzoom" id="exzoom">
+                            <!-- Images -->
+                            <div class="exzoom_img_box">
+                              <ul class='exzoom_img_ul'>
+                                <li><img src="{% static 'assets/img/modelos/modelo1.jpg' %}"/></li>
+                                <li><img src="{% static 'assets/img/modelos/modelo1.jpg' %}"/></li>
+                                <li><img src="{% static 'assets/img/modelos/modelo1.jpg' %}"/></li>
+                                <li><img src="{% static 'assets/img/modelos/modelo1.jpg' %}"/></li>
+                                <li><img src="{% static 'assets/img/modelos/modelo1.jpg' %}"/></li>                                
+                              </ul>
+                            </div>                            
+                            <div class="exzoom_nav"></div>
+                            <!-- Nav Buttons -->
+                            <p class="exzoom_btn">
+                                <a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
+                                <a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+                            </p>
+                        </div>
+                          
+                        <!-- <div class="col-md-3 imagen-catalogo">
+                            <div class="row">
+                                <img src="{% static 'assets/img/modelos/modelo1.jpg' %}" alt="">
+                            </div>
+                            <div class="row">
+                                <img src="{% static 'assets/img/modelos/modelo1.jpg' %}" alt="">
+                            </div>
+                            <div class="row">
+                                <img src="{% static 'assets/img/modelos/modelo1.jpg' %}" alt="">
+                            </div>
+                            <div class="row">
+                                <img src="{% static 'assets/img/modelos/modelo1.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9 imagen-principal">
+                            <img src="{% static 'assets/img/modelos/modelo1.jpg' %}" alt="">
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <video width="400" controls>
+                            <source src="{% static 'assets/video/prueba_video.mp4' %}" type="video/mp4">
+                            Your browser does not support HTML video.
+                          </video>
+                    </div>
+                </div>
+                <div class="col-md-6 producto-page-info">
+                    <h3 class="produto-titulo">Poncho Caplina</h3>
+                    <h5 class="producto-precio">S/ 60.94</h5>
+                    <p class="producto-descripcion">Este atractivo abrigo destaca por sus delicados bordados florales, es el compañero ideal para esas tardes casuales. Cuenta con broches ocultos. </p>
+                    <h6>Colores</h6>
+                    <div class="producto-colores">
+                        <div class="color">
+                            <span class="color-gray" style="background-color: gray;"></span>
+                        </div>
+                        <div class="color">
+                            <span class="color-red" style="background-color: red;"></span>
+                        </div>
+                        <div class="color" id="active">
+                            <span class="color-black" style="background-color: black;"></span>
+                        </div>
+                        <div class="color">
+                            <span class="color-white" style="background-color: white;"></span>
+                        </div>
+                    </div>
+                    <h6>Tallas</h6>
+                    <div class="producto-tallas">
+                        <button>XXS</button>
+                        <button>XSML</button>
+                        <button>SML</button>
+                        <button>MED</button>
+                        <button>LRG</button>
+                        <button>XL</button>
+                        <button>36</button>
+                    </div>
+                    <h6>Cantidad</h6>
+                    <div class="producto-cantidad">
+                        <select name="" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button class="add-cart"><span>Añadir al carrito</span></button>
+                </div>
+            </div>
+        </div>
+    </section>    
+</main>
+{% endblock content %}

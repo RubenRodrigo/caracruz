@@ -1,0 +1,63 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+    <section class="distribuidores">
+        <div class="container">
+            <h1 class="text-center titulo-distribuidores">Nuestros puntos de Venta</h1>
+        </div>
+        <div class="container container-distribuidores">
+            <div class="row distribuidor">
+                <div class="col-md-6 distribuidor-img px-3 py-2">
+                    <img src="{% static 'assets/img/distribuidores/image7.jpg' %}" alt="">
+                </div>
+                <div class="col-md-6 distribuidor-info px-3 py-2">
+                    <h3>Hotel El Corregidor</h3>
+                    <div class="info p-4">
+                        <ul>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Dirección:</strong> Calle San Pedro 139, Centro Histórico – Cercado, Arequipa, Perú </li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Ubicacion:</strong> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Hotel+Corregidor+Arequipa/@-16.3974215,-71.5295929,15z/data=!4m2!3m1!1s0x0:0xe30e65c71dddc857?sa=X&ved=2ahUKEwix1pmXgcPuAhXTIbkGHa0oBx4Q_BIwDnoECBwQBQ">Google Maps</a></li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Horarios de atención:</strong> Las 24 horas del día</li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Telefono:</strong> (054) 288081</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row distribuidor">
+                <div class="col-md-6 distribuidor-img px-3 py-2">
+                    <img src="{% static 'assets/img/distribuidores/image4.jpg' %}" alt="">
+                </div>
+                <div class="col-md-6 distribuidor-info px-3 py-2">
+                    <h3>Hotel Casa de Melgar</h3>
+                    <div class="info p-4">
+                        <ul>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Dirección:</strong> Calle Melgar 108 Centro Histórico de Arequipa, Perú</li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Ubicacion:</strong> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/La+Casa+de+Melgar/@-16.3959362,-71.5342643,15z/data=!4m8!3m7!1s0x0:0x9f6d2520fec42de2!5m2!4m1!1i2!8m2!3d-16.3960185!4d-71.533406">Google Maps</a></li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Horarios de atención:</strong> Las 24 horas del día</li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Telefono:</strong> (054) 288081</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row distribuidor">
+                <div class="col-md-6 distribuidor-img px-3 py-2">
+                    <img src="{% static 'assets/img/distribuidores/image3.jpg' %}" alt="">
+                </div>
+                <div class="col-md-6 distribuidor-info px-3 py-2">
+                    <h3>Hotel Casa Campo</h3>
+                    <div class="info p-4">
+                        <ul>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Dirección:</strong> Los Almendros 100 Cayma, Arequipa (A dos cuadras de la plaza de Cayma)</li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Ubicacion:</strong> <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Hotel+Casa+Campo+Arequipa+-+Per%C3%BA/@-16.3839544,-71.5464031,15z/data=!4m2!3m1!1s0x0:0x8b701523e172207b?sa=X&ved=2ahUKEwigjNGhgcPuAhXKKLkGHS8ECqEQ_BIwDHoECBoQBQ">Google Maps</a></li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Horarios de atención:</strong> Las 24 horas del día</li>
+                            <li style="font-weight: bold;"><strong style="font-size: 120%;">Telefono:</strong> (054) 288081</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock content %}

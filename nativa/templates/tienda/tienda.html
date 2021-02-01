@@ -1,0 +1,179 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main" style="background-color: rgb(245, 235, 228);">
+    <section class="hero-tienda">
+        <div class="row ">
+            <div class="col-md-6 p-0 img-dama">
+                <button class="p-2">Damas</button>
+            </div>
+            <div class="col-md-6 p-0 img-casa">
+                <button class="p-2">Linea de Casa</button>
+            </div>
+        </div>
+    </section>
+    <section class="tienda">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 filtros">
+                    <h3>FILTROS</h3>
+                    <div class="filtros-tipo">
+                            <h4 class="text-dark categoria">Categoria
+                            <img class ="categoria-img" src="{% static 'assets/img/arrow-down.png' %}" alt="">
+                                 </h4>
+                        <div class="options">
+                            {% for categoria in categorias%}
+                                <h5 class="active">{{categoria.nombre}}</h5>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="productos">
+                        {% for producto in productos %}                   
+                        <div class="producto">
+                            <a class="ver-producto-page" href="{% url 'producto' producto.id%}">
+                                <div class="producto-img">
+                                    <img src="/media/{{producto.imagen}}" alt="">
+                                    <button class="ver-producto">Ver</button>
+                                </div>
+                            </a>
+                                <!-- The Modal -->
+                            <div id="myModal" class="modal-box">
+                                <!-- Modal content -->
+                                <div class="modal-contenido">
+                                    <span class="close">&times;</span>
+                                    <section class="producto-page">
+                                        <div class="container">
+                                            <div class="row producto-container">
+                                                <div class="col-md-6 producto-page-imagenes">
+                                                    <div class="row">  
+                                                        <div class="col-md-10 offset-md-1 imagen-principal">
+                                                            <img src="{% static 'assets/img/modelos/modelo1.jpg' %}" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 producto-page-info">
+                                                    <h3 class="produto-titulo">Poncho Caplina</h3>
+                                                    <h5 class="producto-precio">S/ 60.94</h5>
+                                                    <p class="producto-descripcion">Este atractivo abrigo destaca por sus delicados bordados florales, es el compañero ideal para esas tardes casuales. Cuenta con broches ocultos. </p>
+                                                    <h6>Colores</h6>
+                                                    <div class="producto-colores">
+                                                        <div class="color">
+                                                            <span class="color-gray" style="background-color: gray;"></span>
+                                                        </div>
+                                                        <div class="color">
+                                                            <span class="color-red" style="background-color: red;"></span>
+                                                        </div>
+                                                        <div class="color" id="active">
+                                                            <span class="color-black" style="background-color: black;"></span>
+                                                        </div>
+                                                        <div class="color">
+                                                            <span class="color-white" style="background-color: white;"></span>
+                                                        </div>
+                                                    </div>
+                                                    <h6>Tallas</h6>
+                                                    <div class="producto-tallas">
+                                                        <button>XXS</button>
+                                                        <button>XSML</button>
+                                                        <button>SML</button>
+                                                        <button>MED</button>
+                                                        <button>LRG</button>
+                                                        <button>XL</button>
+                                                        <button>36</button>
+                                                    </div>
+                                                    <h6>Cantidad</h6>
+                                                    <div class="producto-cantidad">
+                                                        <select name="" id="">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                            <option value="7">7</option>
+                                                            <option value="8">8</option>
+                                                            <option value="9">9</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <button class="add-cart"><span>Añadir al carrito</span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>        
+                                </div>
+                            </div>
+
+                            <div class="producto-info">
+                                <a href="{% url 'producto' producto.id%}">
+                                    <h5 id="producto-info-titulo">{{producto.nombre}}</h5>
+                                </a>
+                                <p id="producto-info-precio">S/ {{producto.precio}}</p>
+                                <p id="producto-info-descripcion">{{producto.caracteristicas}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script type="text/javascript">
+    const filtros = document.querySelector(".filtros")
+    const productos = document.querySelector(".productos")
+    var body = document.body
+    eventListener()
+    function eventListener() {
+        filtros.addEventListener('click', mostraFiltros)
+        productos.addEventListener('click', mostrarProducto)
+    }
+    function mostraFiltros(e) {
+        if (e.target.classList.contains("categoria")) {
+            const categoria = e.target.nextElementSibling
+            if (categoria.classList.contains('options-active')) {
+                categoria.classList.remove("options-active")
+            } else {
+                categoria.classList.add("options-active")
+            }
+        }
+        if (e.target.classList.contains("categoria-img")) {
+            const categoria = e.target.parentElement.nextElementSibling
+            if (categoria.classList.contains('options-active')) {
+                categoria.classList.remove("options-active")
+            } else {
+                categoria.classList.add("options-active")
+            }
+        }
+    }
+
+    function mostrarProducto(e) {
+        if (e.target.classList.contains("ver-producto")) {
+            e.preventDefault()
+            const verProducto = e.target
+            var modal = verProducto.parentElement.parentElement.nextElementSibling            
+            body.style.overflow = 'hidden'
+            modal.classList.add('modal-box-active')
+            modal.addEventListener('click', funcionalidadModal)
+            window.onclick = function(e) {
+                if (e.target == modal) {
+                    modal.classList.remove('modal-box-active')
+                    body.style.overflow = 'scroll'
+                    e.preventDefault()
+                }
+            }
+        }
+    }
+
+    function funcionalidadModal(e) {
+        if(e.target.classList.contains("close")){
+            body.style.overflow = 'scroll'
+            e.preventDefault()
+            var modal = e.target.parentElement.parentElement
+            modal.classList.remove('modal-box-active')
+        }
+    }
+</script>
+{% endblock content %}
