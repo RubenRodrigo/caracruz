@@ -1,0 +1,1064 @@
+/**
+* Template Name: Lumia - v2.2.1
+* Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: rgb(41, 40, 40);
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+}
+
+.back-to-top i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: #57544e;
+  color: #fff;
+  transition: all 0.4s;
+}
+
+.back-to-top i:hover {
+  background: #797163;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  height: 70px;
+  transition: all 0.5s;  
+  transition: all 0.5s;
+  background-color: #585450;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo h1 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #384046;
+}
+
+#header .logo h1 a, #header .logo h1 a:hover {
+  color: #384046;
+  text-decoration: none;
+}
+
+#header .logo img {
+  max-height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Header Social Links
+--------------------------------------------------------------*/
+.header-social-links a {
+  color: #9ba6af;
+  padding-left: 8px;
+  display: inline-block;
+  line-height: 1px;
+  transition: 0.3s;
+}
+
+.header-social-links a:hover {
+  color: #3498db;
+}
+
+@media (max-width: 768px) {
+  .header-social-links {
+    padding-right: 48px;
+  }
+  .header-social-links a {
+    padding-left: 6px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu, .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  color: white;
+  padding: 12px 10px;
+  transition: 0.3s;
+  font-size: 90%;
+  font-weight: bold;  
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  color: #ddd1c6;
+  text-decoration: none;
+}
+
+.nav-menu .drop-down ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 30px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px 0;
+  background: rgb(250, 238, 222);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: ease all 0.3s;
+}
+
+.nav-menu .drop-down:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.nav-menu .drop-down li {
+  min-width: 180px;
+  position: relative;
+}
+
+.nav-menu .drop-down ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: none;
+  color: #21262a;
+  font-weight: bold;
+}
+
+.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+  color: #36322c;
+}
+
+.nav-menu .drop-down > a:after {
+  content: "\ea99";
+  font-family: IcoFont;
+  padding-left: 5px;
+}
+
+.nav-menu .drop-down .drop-down ul {
+  top: 0;
+  left: calc(100% - 30px);
+}
+
+.nav-menu .drop-down .drop-down:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+}
+
+.nav-menu .drop-down .drop-down > a {
+  padding-right: 35px;
+}
+
+.nav-menu .drop-down .drop-down > a:after {
+  content: "\eaa0";
+  font-family: IcoFont;
+  position: absolute;
+  right: 15px;
+}
+
+@media (max-width: 1366px) {
+  .nav-menu .drop-down .drop-down ul {
+    left: -90%;
+  }
+  .nav-menu .drop-down .drop-down:hover > ul {
+    left: -100%;
+  }
+  .nav-menu .drop-down .drop-down > a:after {
+    content: "\ea9d";
+  }
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 20px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+}
+
+.mobile-nav-toggle i {
+  color: #384046;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  z-index: 9999;
+  overflow-y: auto;
+  background: #fff;
+  transition: ease-in-out 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+.mobile-nav * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-nav a {
+  display: block;
+  position: relative;
+  color: #384046;
+  padding: 10px 20px;
+  font-weight: 500;
+  outline: none;
+}
+
+.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.mobile-nav .drop-down > a:after {
+  content: "\ea99";
+  font-family: IcoFont;
+  padding-left: 10px;
+  position: absolute;
+  right: 15px;
+}
+
+.mobile-nav .active.drop-down > a:after {
+  content: "\eaa1";
+}
+
+.mobile-nav .drop-down > a {
+  padding-right: 35px;
+}
+
+.mobile-nav .drop-down ul {
+  display: none;
+  overflow: hidden;
+}
+
+.mobile-nav .drop-down li {
+  padding-left: 20px;
+}
+
+.mobile-nav-overly {
+  width: 100%;
+  height: 100%;
+  z-index: 9997;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(33, 38, 42, 0.6);
+  overflow: hidden;
+  display: none;
+  transition: ease-in-out 0.2s;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active .mobile-nav {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 80vh;
+  background: url("../img/about.jpg") center center;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.7);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .container {
+  z-index: 2;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero h1 span {
+  border-bottom: 4px solid #3498db;
+}
+
+#hero h2 {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+#hero .btn-get-started {  
+  margin-top: 10px;
+  border: 2px solid rgb(37, 33, 33);    
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 10%;  
+  transition: ease-in-out 0.3s;
+  color: #fff;  
+  text-transform: uppercase;
+  background-color: rgb(37, 33, 33);
+}
+
+.btn-hero:hover{
+  background-color: rgb(255, 255, 255);
+  color: #000;
+}
+#hero .btn-get-started:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000;
+}
+
+@media (max-width: 992px) {
+  #hero {
+    height: calc(100vh - 70px);
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 70px 0;
+}
+
+.section-bg {
+  background-color: #f7fbfe;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;    
+}
+
+.section-title:hover{  
+  color:rgb(0, 0, 0);
+  border-bottom:rgb(71, 57, 40) 3px solid;
+  background-color: #faf1e8;
+}
+
+.section-title *{
+  margin: 0%
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 600;  
+  padding-bottom: 20px;  
+  margin: 0%;
+}
+
+
+/*--------------------------------------------------------------
+# What We Do
+--------------------------------------------------------------*/
+.what-we-do {
+  background-color: rgb(253, 246, 236);
+}
+
+.what-we-do .icon-box {
+  text-align: center;
+  padding: 30px 20px;
+  transition: all ease-in-out 0.3s;
+  background-color: rgb(253, 249, 243);
+}
+
+.what-we-do .icon-box img {
+  margin: 0 auto;
+  object-fit: cover;
+  width:100%;
+  height:400px;
+  background: #eaf4fb;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: ease-in-out 0.3s;
+}
+
+
+.what-we-do .icon-box h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.what-we-do .icon-box h4 a {
+  color: #384046;
+  transition: ease-in-out 0.3s;
+}
+
+.what-we-do .icon-box p {
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.what-we-do .icon-box:hover {
+  border-color: #fff;
+  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+}
+
+.what-we-do .icon-box:hover h4 a, .what-we-do .icon-box:hover .icon i {
+  color: #8f816c;
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about {
+  padding: 50px 0;
+  background-color: rgb(248, 233, 211);
+}
+
+.about h3 {
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.about ul li + li {
+  margin-top: 10px;
+}
+
+.about ul li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.about ul i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 22px;
+  color: #000000;
+}
+
+.about .icon-boxes {
+  padding-top: 10px;
+}
+
+.about .icon-boxes h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.about .icon-boxes i {
+  font-size: 48px;
+  color: #000000;
+}
+
+.about .icon-boxes p {
+  font-size: 15px;
+  color: #000000;
+}
+
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services .icon-box {
+  padding: 30px;
+  border-radius: 6px;
+  background: #fff;
+  transition: ease-in-out 0.3s;
+}
+
+.services .icon-box i {
+  float: left;
+  color: #3498db;
+  font-size: 40px;
+}
+
+.services .icon-box h4 {
+  margin-left: 70px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.services .icon-box h4 a {
+  color: #384046;
+  transition: 0.3s;
+}
+
+.services .icon-box p {
+  margin-left: 70px;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+.services .icon-box:hover {
+  box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.08);
+}
+
+.services .icon-box:hover h4 a {
+  color: #3498db;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  color: white;
+  font-size: 14px;
+  background: #444444;
+}
+
+
+/*--------------------------------------------------------------
+# Hero - Tienda
+--------------------------------------------------------------*/
+.hero-tienda .row{
+  width: 100%;
+  margin: 0;
+}
+.hero-tienda .row .img-dama {
+  width: 100%;
+  height: 80vh;
+  background: url("../img/alpaca-tienda.jpg") center center;
+  background-size: cover;
+  position: relative;  
+  padding: 0;
+  text-align: center;
+}
+
+.hero-tienda .row .img-dama:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.hero-tienda .row .img-casa {
+  width: 100%;
+  height: 80vh;  
+  background: url("../img/prendas-de-alpaca.jpg") center center;
+  background-size: cover;
+  position: relative;  
+  padding: 0;
+  
+}
+
+.hero-tienda .row .img-casa:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.img-dama button, .img-casa button{
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  border-radius: 0%;
+  border: 1.5px solid #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.img-dama button:hover, .img-casa button:hover{
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+/*--------------------------------------------------------------
+# Filtros - Tienda
+--------------------------------------------------------------*/
+.tienda {
+  height: 100%;
+}
+.tienda .container{
+  max-width: 1400px;
+  height: 100%;
+}
+.tienda .filtros{
+  padding-right: 40px;
+}
+
+.tienda .filtros h3{
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #000;
+}
+
+.filtros .filtros-tipo{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgb(61, 60, 60);
+}
+
+.filtros .filtros-tipo h4{
+  font-weight: bold;  
+}
+.filtros-tipo .categoria img{
+  width: 18px;
+  height: 18px;
+}
+.filtros-tipo .categoria{
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.filtros-tipo .categoria:hover{
+  background-color: rgba(235, 220, 208, 0.534);
+}
+.filtros-tipo h6{
+  font-weight: bold;  
+}
+.filtros-tipo .options{
+  padding-top: 10px;
+  max-height: 0;
+  transition: max-height 0.65s ease-out;
+  overflow: hidden;
+}
+.filtros-tipo .options-active{
+  max-height: 600px;
+  transition: max-height 0.75s ease-in;;
+}
+
+.filtros-tipo .options h5{
+  padding: 15px;
+  margin: 0%;
+  cursor: pointer;
+}
+.filtros-tipo .options h5:hover{
+  background-color: rgba(235, 220, 208, 0.534);
+}
+.filtros-tipo .options .active{
+  background-color: rgba(235, 220, 208, 0.534);
+}
+@media (max-width: 767px) {
+  .filtros{
+    display: none;
+  }
+}
+/*--------------------------------------------------------------
+# Productos -Tienda
+--------------------------------------------------------------*/
+.productos{  
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+  grid-gap: 2em 4em;
+  padding: 0px 40px;
+}
+.producto img{
+  width: 100%;
+}
+.producto .producto-info #producto-info-titulo:hover {
+  border-bottom: 2px solid rgb(95, 88, 63);
+}
+.producto-img {
+  position: relative;
+}
+.producto-img button{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgba(196, 161, 95, 0.315);
+  color: white !important;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 8px 24px;
+  border: 1.5px solid rgb(78, 62, 31);
+  cursor: pointer;
+  border-radius: 0;
+  text-align: center;
+  width: 90%
+}
+.producto-img button:hover{
+  border: 1.5px solid rgb(78, 62, 31);
+  background-color: rgb(196, 160, 95);
+  color: white !important;
+}
+.producto-info{
+  margin-top: 20px;
+}
+.producto-info *{
+  font-weight: bold !important;
+}
+.producto-info #producto-info-titulo{
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(78, 62, 31);
+}
+.producto-info #producto-info-precio{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 120%;
+}
+.producto-info #producto-info-descripcion{
+  color: rgb(78, 62, 31);
+  font-size: 90%;
+}
+/* The Modal (background) */
+.producto .modal-box{
+  display: none;
+}
+.producto .modal-box-active{
+  display: block;
+  position: fixed;
+  z-index: 1072;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  background-color: rgba(0,0,0,0.4); 
+}
+/* Modal Content */
+.producto .modal-contenido {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 1000px;
+  height: 450px;
+  border-radius: 0;
+  overflow-y: scroll;
+  position: relative;  
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.producto .modal-contenido section{
+  margin: 0%;
+  padding: 0%;
+}
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  width: auto
+}
+.producto .close:hover,
+.producto .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+ 
+@media (max-width: 1205px) {
+  .producto-img button{
+    display: none;
+  }
+  .producto .modal-box .modal-contenido{
+    width: 80%;
+    height: 80%;
+  }
+}
+@media (max-width: 1025px) {
+  .productos{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .productos{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 550px) {
+  .productos{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/*--------------------------------------------------------------
+# Distribuidores
+--------------------------------------------------------------*/
+.distribuidores{
+  margin: 30px 10px;
+}
+.distribuidores .container-distribuidores{
+  padding: 30px 20px;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+.distribuidores .titulo-distribuidores{
+  padding: 20px;  
+  margin-bottom: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+}
+.distribuidor-img img{
+  width: 100%;
+}
+.distribuidor .distribuidor-info ul li{
+  padding: 10px 0px;
+}
+
+/*--------------------------------------------------------------
+# Producto Page
+--------------------------------------------------------------*/
+.producto-page{
+  margin-top: 40px;
+}
+.producto-page img{
+  width: 100%;
+}
+.producto-page-imagenes .imagen-catalogo .row{
+  padding: 10px 20px;
+}
+.producto-page-imagenes .imagen-catalogo img{
+  padding-bottom: 2px;
+  border-bottom: 4px solid rgb(46, 45, 45);
+}
+
+.producto-page-imagenes .imagen-principal img{
+  padding: 10px 20px;
+}
+
+.producto-page .producto-page-info{
+  padding: 10px 50px;
+}
+.producto-page .producto-page-info > *{
+  margin-bottom: 20px;
+}
+.producto-page .producto-page-info *{
+  font-weight: bold;
+}
+.producto-page-info .producto-descripcion{
+  color: black;
+  font-style: italic;
+}
+
+.producto-page-info .producto-colores{
+  display: flex;
+}
+.producto-page-info .producto-colores .color{
+  margin: 10px 15px;
+  padding: 4px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.producto-page-info .producto-colores .color:hover{
+  border: 1px solid rgb(92, 90, 90);
+}
+.producto-page-info .producto-colores #active{
+  border: 1px solid black;
+}
+.producto-page-info .producto-colores .color *{
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px 1px rgb(179, 176, 176);
+}
+.producto-page-info .producto-colores .color .color-white{
+  border: 1px solid black;
+}
+.producto-page-info .producto-tallas button{
+  background-color: white;
+  border: 2px solid black;
+  padding: 8px;
+  width: 80px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 80%;
+}
+.producto-page-info .producto-tallas button:hover{
+  color: white;
+  background-color: black;
+}
+.producto-page-info select {
+  width: 80%;
+  background: rgba(128, 128, 128, 0.116);
+  border: none;
+  border-bottom: 2px solid black;
+  appearance: none;
+}
+.producto-page-info .add-cart{
+  width: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 120%;
+  padding: 10px;
+}
+.producto-page-info .add-cart span:hover{
+  border-bottom: 2px solid white;
+}
+
+@media (max-width: 767px) {
+  .producto-page-imagenes .imagen-catalogo{
+    display: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Servicio al cliente
+--------------------------------------------------------------*/
+
+.servicio .container-servicio{
+  padding: 30px 20px;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+
+.servicio .titulo-servicio{
+  padding: 20px;  
+  margin-bottom: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.servicio h3{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(53, 53, 53);
+  cursor: pointer;
+}
+.servicio h3:hover{
+  color: rgb(0, 0, 0);
+}
+.container-servicio .servicio-info{
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+.container-servicio .servicio-active{
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in;
+}
+
+/*--------------------------------------------------------------
+# Artesanos
+--------------------------------------------------------------*/
+.artesanos .titulo-artesanos{
+  padding: 20px;  
+  margin-bottom: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.artesanos .container-artesanos{
+  padding: 30px 20px;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+
+.eapps-widget {
+  position: inherit;
+}
