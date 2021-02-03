@@ -4,12 +4,103 @@
 
 <main id="main">
     <section class="artesanos">
-        <div class="container">
-            <h1 class="text-center titulo-artesanos">Nuestro Núcleo</h1>
+        <div class="container titulo">
+            <div class="row">
+                <div class="col-4 borde-titulo">
+                    <span></span>
+                </div>
+                <div class="col-4">
+                    <h1>Nuestros Artesanos</h1>
+                </div>
+                <div class="col-4 borde-titulo">
+                    <span></span>
+                </div>
+            </div>
         </div>
-        <div class="container container-artesanos">
-            
+        <div class="ayudanos">
+            <div class="ayudanos-img ayudanos-img-left">
+                <img src="{% static 'assets/img/artesanos/angel-recortado.jpg' %}" alt="">
+            </div>
+            <div class="ayudanos-info">
+                <h1>ayuda</h1>
+                <h6>a nuestros maestros artesanos</h6>
+                <p>Con tu compra ayúdanos a ayudar a los maestros artesanos, estos maestros del tejido a mano y del tejido en telar han sido reconocidos por formar cientos de artesanos y siguen día a día mostrando y difundiendo su arte </p>
+            </div>
+            <div class="ayudanos-img ayudanos-img-right">
+                <img src="{% static 'assets/img/artesanos/andrea-recortado.jpg' %}" alt="">
+            </div>
+        </div>
+        <div class="artesano-container">
+            <div class="artesano-par">
+                <div class="artesano">
+                    <div class="artesano-img">
+                        <img class="image" src="{% static 'assets/img/artesanos/Angel.jpg' %}" alt="">
+                    </div>
+                    <div class="artesano-info">
+                        <div class="info">
+                            <h1>Angel</h1>
+                            <p><strong><em>Mi nombre es Angel Ambor Misco. Tengo 70 años y he estado trabajando en el arte textil durante 30 años...</em></strong></p>
+                            <div>
+                                <span>.</span>
+                                <span>.</span>
+                                <span>.</span>
+                            </div>
+                            <p><strong><em>Actualmente tengo el siguiente proyecto: Un telar automático que funcionará continuamente sin intervenir en ...</em></strong></p>
+                            <div>
+                                <span>.</span>
+                                <span>.</span>
+                                <span>.</span>
+                            </div>
+                            <div>
+                                <button class="ver-mas">Saber más</button>
+                            </div>
+                        </div>
+                        <video autoplay muted loop>
+                            <source src="{% static 'assets/img/artesanos/angel-video.mp4' %}" type="video/mp4">
+                            Your Browser does not support HTML5 video.
+                        </video>
+                    </div>
+                </div>                
+                <div class="artesano-video">
+                    <video id="myVideo" controls>
+                        <source src="{% static 'assets/img/artesanos/angel-video.mp4' %}" type="video/mp4">
+                        Your Browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>    
+            <div class="artesano-impar">
+                <div class="artesano">
+                    <div class="artesano-info">
+                        <div class="info">
+                            <h1>Andrea</h1>
+                            <p><strong><em>Mi nombre es Andrea Garrafa Manzano, maestra de artesanos. Empece a los 15 años...</em></strong></p>
+                            <div>
+                                <span>.</span>
+                                <span>.</span>
+                                <span>.</span>
+                            </div>                                                        
+                            <div>
+                                <button class="ver-mas">Saber más</button>
+                            </div>
+                        </div>
+                        <video autoplay muted loop>
+                            <source src="{% static 'assets/img/artesanos/andrea-video.mp4' %}" type="video/mp4">
+                            Your Browser does not support HTML5 video.
+                        </video>
+                    </div>
+                    <div class="artesano-img">
+                        <img class="image" src="{% static 'assets/img/artesanos/Andrea.jpg' %}" alt="">
+                    </div>
+                </div>               
+                <div class="artesano-video">
+                    <video id="myVideo" controls>
+                        <source src="{% static 'assets/img/artesanos/andrea-video.mp4' %}" type="video/mp4">
+                        Your Browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>
         </div>
     </section>
 </main>
+<script src="{% static 'assets/js/artesanos.js' %}"></script>
 {% endblock content %}

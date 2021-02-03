@@ -1,4 +1,40 @@
 {% extends 'tienda/main.html' %}
 {% load static %}
 {% block content %}
+<main id="main">
+    <section class="contactos">
+        <div class="container titulo">
+            <div class="row">
+                <div class="col-4 borde-titulo">
+                    <span></span>
+                </div>
+                <div class="col-4">
+                    <h1>CONTÁCTANOS</h1>
+                </div>
+                <div class="col-4 borde-titulo">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="container info">
+            <form action="">
+                <div class="row py-2 mb-2">
+                    <h5>Escriba sus nombres y apellidos</h5>
+                    <input type="text" name="nombres" placeholder="Nombres y Apellidos">
+                </div>
+                <div class="row py-2 mb-2">
+                    <h5>Escriba su correo</h5>
+                    <input type="email" name="correo" placeholder="Nombres y Apellidos">
+                </div>
+                <div class="row py-2 mb-2">
+                    <h5>Escriba su mensaje</h5>
+                    <textarea name="mensaje" id="" cols="30" rows="5"></textarea>
+                </div>
+                <div class="row py-2 mb-2">
+                    <button class="enviar">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
 {% endblock content %}

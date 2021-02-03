@@ -890,21 +890,46 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Gloabl Pages
+--------------------------------------------------------------*/
+.distribuidores .titulo,
+.servicio .titulo,
+.artesanos .titulo,
+.contactos .titulo{
+  text-align: center;
+  padding: 20px;
+  margin: auto
+}
+.distribuidores .titulo .borde-titulo,
+.servicio .titulo .borde-titulo,
+.artesanos .titulo .borde-titulo,
+.contactos .titulo .borde-titulo{
+  position: relative;
+}
+.distribuidores .titulo .borde-titulo span,
+.servicio .titulo .borde-titulo span,
+.artesanos .titulo .borde-titulo span,
+.contactos .titulo .borde-titulo span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+
+/*--------------------------------------------------------------
 # Distribuidores
 --------------------------------------------------------------*/
+
 .distribuidores{
   margin: 30px 10px;
 }
 .distribuidores .container-distribuidores{
-  padding: 30px 20px;
-  border-top: solid black 1px;
+  padding: 30px 20px;  
   border-bottom: solid black 1px;
-}
-.distribuidores .titulo-distribuidores{
-  padding: 20px;  
-  margin-bottom: 15px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  
 }
 .distribuidor-img img{
   width: 100%;
@@ -1017,15 +1042,8 @@ section {
 
 .servicio .container-servicio{
   padding: 30px 20px;
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
 }
 
-.servicio .titulo-servicio{
-  padding: 20px;  
-  margin-bottom: 15px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 .servicio h3{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: rgb(53, 53, 53);
@@ -1047,18 +1065,188 @@ section {
 /*--------------------------------------------------------------
 # Artesanos
 --------------------------------------------------------------*/
-.artesanos .titulo-artesanos{
-  padding: 20px;  
-  margin-bottom: 15px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+.artesanos .ayudanos{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 90vh;
+  width: 100%;
+  background-color: rgb(250, 237, 214);
+}
+.artesanos .ayudanos img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ayudanos .ayudanos-info{
+  z-index: 10;
+  padding: 20px;
+  background-color: rgb(250, 237, 214);
+}
+.ayudanos .ayudanos-info *{
+  margin: 20px 0px;
 }
 
-.artesanos .container-artesanos{
-  padding: 30px 20px;
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
+.artesanos .ayudanos .ayudanos-img {
+  position: relative;
+}
+.artesanos .ayudanos .ayudanos-img-left img{
+  z-index: 1;
+  position: absolute;
+  animation-name: ayudanos-left;
+  animation-duration: 2s;
+}
+.artesanos .ayudanos .ayudanos-img-right img{
+  z-index: 1;
+  position: absolute;
+  animation-name: ayudanos-right;
+  animation-duration: 2s;
 }
 
-.eapps-widget {
-  position: inherit;
+@keyframes ayudanos-left{
+  from {left:100%}
+  to{left:0%}
+}
+@keyframes ayudanos-right{
+  from {right:100%}
+  to{right:0%}
+}
+
+.ayudanos .ayudanos-info h1{
+  text-align: center;
+  font-size: 7rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-right: 10%;
+}
+.ayudanos .ayudanos-info h6{
+  text-align: center;
+  letter-spacing: 5px;
+}
+.ayudanos .ayudanos-info p{
+  text-align: center;
+}
+
+.artesanos .artesano{
+  display: flex;
+  flex-wrap: wrap;
+  height: 90vh;
+  background-color: rgba(49, 48, 48, 0.7);
+}
+.artesanos .artesano .artesano-img{
+  width: 65%;
+}
+.artesanos .artesano .artesano-info{
+  width: 35%;
+  position: relative;
+}
+.artesanos .artesano .artesano-info span{
+  font-size: 250%;
+}
+.artesanos .artesano .artesano-info .ver-mas{
+  font-size: 150%;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.712);
+  color: white;
+  border: 2px solid black;
+  padding: 5px 20px;
+  width: 100%;
+  margin-top: 20px;
+  transition: background 0.8s;
+}
+.artesanos .artesano .artesano-info .ver-mas:hover{
+  color: #000;
+  background-color: white;  
+}
+
+.artesanos .artesano .artesano-info .info{
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(49, 48, 48, 0.7);
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  color: white;
+}
+.artesanos .artesano .artesano-info video{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.artesanos .artesano-container img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artesanos .artesano-par img{
+  left:-100%;
+  transition: left 4s;
+}
+.artesanos .artesano-par img.active{
+  left: 0%;
+}
+.artesanos .artesano-impar img{
+  right:-100%;
+  transition: right 4s;
+}
+.artesanos .artesano-impar img.active{
+  right: 0%;
+}
+
+.artesanos .artesano-video{
+ padding: 0px 50px; 
+ background-color: black;
+ height: 0;
+ transition: height 2s;
+}
+.artesanos .artesano-video-active{
+  height: 80vh;
+}
+.artesanos .artesano-video video{
+  width: 100%;
+  height: 100%;
+}
+
+div.eapps-widget {
+  position: inherit !important;
+}
+
+/*--------------------------------------------------------------
+# Contactanos
+--------------------------------------------------------------*/
+
+.contactos .info{
+  max-width: 600px;
+}
+.contactos .info input, .contactos .info textarea{
+  width: 100%;
+  border-radius: 0;
+  border: 2px solid rgb(221, 220, 220);
+  padding: 5px;
+  font-size: 120%;
+}
+.contactos .info input:focus, .contactos .info textarea:focus{
+  border: 2px solid black;
+}
+.contactos .info .enviar{
+  font-size: 150%;
+  font-weight: bold;
+  background: rgb(0, 0, 0);
+  color: white;
+  border: 2px solid black;
+  padding: 5px 20px;
+  width: 100%;
+  margin-top: 20px;
+  transition: background 0.5s;  
+}
+.contactos .info .enviar:hover{
+  color: #000;
+  background-color: white;  
 }
