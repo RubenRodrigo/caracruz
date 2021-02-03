@@ -2,3 +2,4 @@ nativa/__pycache__/
 tienda/__pycache__/
 /static/
 media/
+nativa/migrations/
