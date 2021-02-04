@@ -15,7 +15,8 @@ class Categoria(models.Model):
         return self.nombre
 
 class Producto(models.Model):
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE, null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True, blank=True)    
     nombre = models.CharField(max_length=500, null=True)
     caracteristicas = models.CharField(max_length=1000, null=True)
     precio = models.FloatField()
@@ -31,7 +32,17 @@ class Producto(models.Model):
             url = self.imagen.url
         except:
             url = ''
-        return ulr
+        return url
+
+    @property
+    def imagenes(self):
+        imagenes = self.productoimagen_set.all()
+        return imagenes
+    
+    @property
+    def colores(self):
+        colores = self.color_set.all()
+        return colores
     
 class ProductoImagen(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
@@ -46,7 +57,7 @@ class ProductoImagen(models.Model):
             url = self.imagen.url
         except:
             url = ''
-        return ulr
+        return url
 
 
 class Color(models.Model):

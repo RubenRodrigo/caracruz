@@ -62,8 +62,8 @@
             <ul>
               <li class="drop-down"><a href="#about">Catálogo</a>
                 <ul>
-                  <li><a href="{% url 'tienda' %}">Damas</a></li>
-                  <li><a href="{% url 'tienda' %}">Linea de Casa</a></li>                  
+                  <li><a href="{% url 'tienda_catalogo' 'Damas' %}">Damas</a></li>
+                  <li><a href="{% url 'tienda_catalogo' 'Linea de Casa' %}">Linea de Casa</a></li>                  
                 </ul>
               </li>
               <li><a href="#team">Carrito de compras</a></li>
@@ -129,11 +129,10 @@
     <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
     <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/jquery-exzoom/jquery.exzoom.js' %}"></script>
+    <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>    
     <!-- Template Main JS File -->
     <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/productos.js' %}"></script>
 
 </body>
 
