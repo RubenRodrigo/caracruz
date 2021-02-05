@@ -5,3 +5,4 @@ media/
 media-2/
 nativa/migrations/
 /nativa/static/assets/img/artesanos/
+*.sqlite3
