@@ -45,6 +45,21 @@ function mostrarProducto(e) {
             }
         }
     }
+    if (e.target.classList.contains("ver-producto-span")) {
+        e.preventDefault()
+        const verProducto = e.target.parentElement
+        var modal = verProducto.parentElement.parentElement.nextElementSibling            
+        body.style.overflow = 'hidden'
+        modal.classList.add('modal-box-active')
+        modal.addEventListener('click', funcionalidadModal)
+        window.onclick = function(e) {
+            if (e.target == modal) {
+                modal.classList.remove('modal-box-active')
+                body.style.overflow = 'scroll'
+                e.preventDefault()
+            }
+        }
+    }
 }
 
 function funcionalidadModal(e) {

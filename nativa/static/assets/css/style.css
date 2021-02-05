@@ -120,8 +120,12 @@ a:hover {
   padding: 12px 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-size: 90%;
+  font-size: 80%;
   font-weight: bold;
+}
+
+.nav-menu a.cart {
+  padding: 0;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -834,6 +838,9 @@ section {
 
 .producto img {
   width: 100%;
+  height: 380px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .producto .producto-info #producto-info-titulo:hover {
@@ -844,29 +851,36 @@ section {
   position: relative;
 }
 
+.producto-img:hover button {
+  height: 40px;
+}
+
+.producto-img:hover button span {
+  display: initial;
+}
+
 .producto-img button {
   position: absolute;
-  top: 90%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: rgba(196, 161, 95, 0.315);
-  color: white;
-  font-size: 120%;
+  bottom: 0%;
+  left: 0%;
+  background-color: rgba(255, 255, 255, 0.753);
+  color: #000;
   font-weight: bold;
-  padding: 8px 24px;
-  border: 1.5px solid #4e3e1f;
+  border: none;
+  border-bottom: 2px solid #727272;
   cursor: pointer;
   border-radius: 0;
   text-align: center;
-  width: 90%;
+  width: 100%;
+  height: 0px;
 }
 
-.producto-img button:hover {
-  border: 1.5px solid #4e3e1f;
-  background-color: #c4a05f;
-  color: white;
+.producto-img button span {
+  display: none;
+}
+
+.producto-img button:hover span {
+  border-bottom: 1px solid #000;
 }
 
 .producto-info {
@@ -916,14 +930,18 @@ section {
   padding: 20px;
   border: 1px solid #888;
   width: 1000px;
-  height: 450px;
+  height: 500px;
   border-radius: 0;
-  overflow-y: scroll;
   position: relative;
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+}
+
+.producto .modal-contenido .producto-page {
+  height: 90%;
+  overflow: auto;
 }
 
 /* Add Animation */
@@ -957,10 +975,17 @@ section {
 /* The Close Button */
 .close {
   color: #aaaaaa;
-  float: right;
+  display: block;
+  float: none;
   font-size: 28px;
   font-weight: bold;
   width: auto;
+  text-align: right;
+}
+
+.close-end {
+  display: block;
+  height: 28px;
 }
 
 .producto .close:hover,
@@ -1061,6 +1086,7 @@ section {
 .distribuidores .container-distribuidores {
   padding: 30px 20px;
   border-bottom: solid black 1px;
+  font-size: 90%;
 }
 
 .distribuidor-img img {
@@ -1546,16 +1572,12 @@ div.eapps-widget {
 /*--------------------------------------------------------------
   # Contactanos
   --------------------------------------------------------------*/
-.contactos .info {
-  max-width: 600px;
-}
-
 .contactos .info input, .contactos .info textarea {
   width: 100%;
   border-radius: 0;
   border: 2px solid #dddcdc;
   padding: 5px;
-  font-size: 120%;
+  font-size: 100%;
 }
 
 .contactos .info input:focus, .contactos .info textarea:focus {

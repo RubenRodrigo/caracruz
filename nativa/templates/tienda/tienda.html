@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<main id="main" style="background-color: rgb(245, 235, 228);">
+<main id="main">
     <section class="hero-tienda">
         <div class="row ">
             <div class="col-md-6 p-0 img-dama">
@@ -17,9 +17,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 filtros">
-                    <h3>FILTROS</h3>
+                    <h3>CATALOGOS</h3>
                     <div class="filtros-tipo">
-                            <h4 class="text-dark catalogo">Catalogos
+                            <h4 class="text-dark catalogo">Categorias
                             <img class ="catalogo-img" src="{% static 'assets/img/arrow-down.png' %}" alt="">
                                  </h4>
                         <div class="options">
@@ -50,7 +50,7 @@
                                         alt=""
                                         data-productofirst="{{producto.imagenURL}}"
                                         data-productosecond="{{producto.imagenes.0.imagenURL}}">                                    
-                                    <button class="ver-producto">Ver</button>                                    
+                                    <button class="ver-producto"><span class="ver-producto-span">Ver producto</span></button>                                    
                                 </div>
                             </a>
                                 <!-- The Modal -->
@@ -144,7 +144,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </section>    
+                                    </section>
+                                    <span class="close-end"></span>
                                 </div>
                             </div>
 
@@ -173,7 +174,7 @@
                                 <a href="?page={{ page_obj.next_page_number }}">next</a>
                                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
                             {% endif %}
-                        </span>
+                        </span>                        
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404 ,render
 from .models import *
 # Create your views here.
 tienda_template = 'tienda/tienda.html'
+paginate = 6
 def index(request):
     return render(request, 'tienda/index.html')
 
@@ -11,7 +12,7 @@ def tienda(request):
 
     productos = Producto.objects.all()
 
-    paginator = Paginator(productos, 12)
+    paginator = Paginator(productos, paginate)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)   
 
@@ -27,7 +28,7 @@ def tienda_catalogo(request, catalogo_name):
         
     productos = catalogo.producto_set.all()
 
-    paginator = Paginator(productos, 12)
+    paginator = Paginator(productos, paginate)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
@@ -44,7 +45,7 @@ def tienda_categoria(request, catalogo_name, categoria_name):
         
     productos = categoria.producto_set.all()
 
-    paginator = Paginator(productos, 12)
+    paginator = Paginator(productos, paginate)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
