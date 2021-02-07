@@ -1,0 +1,33 @@
+  /*--------------------------------------------------------------
+  # Sections General
+  --------------------------------------------------------------*/
+  section {
+    padding: 70px 0;
+  }
+  
+  .section-bg {
+    background-color: #f7fbfe;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;    
+  }
+  
+  .section-title:hover{  
+    color:rgb(0, 0, 0);
+    border-bottom:rgb(71, 57, 40) 3px solid;
+    background-color: #faf1e8;
+  }
+  
+  .section-title *{
+    margin: 0%
+  }
+  
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;  
+    padding-bottom: 20px;  
+    margin: 0%;
+  }

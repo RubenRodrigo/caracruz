@@ -11,18 +11,165 @@ a:hover {
   text-decoration: none;
 }
 
-/*--------------------------------------------------------------
-  # Back to top button
-  --------------------------------------------------------------*/
-.back-to-top {
-  position: fixed;
-  display: none;
-  right: 15px;
-  bottom: 15px;
-  z-index: 99999;
+div.eapps-widget {
+  position: inherit !important;
 }
 
-.back-to-top i {
+/*--------------------------------------------------------------
+  # Gloabl Pages
+  --------------------------------------------------------------*/
+.distribuidores .titulo,
+.servicio .titulo,
+.artesanos .titulo,
+.contactos .titulo {
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+}
+
+.distribuidores .titulo .borde-titulo,
+.servicio .titulo .borde-titulo,
+.artesanos .titulo .borde-titulo,
+.contactos .titulo .borde-titulo {
+  position: relative;
+}
+
+.distribuidores .titulo .borde-titulo span,
+.servicio .titulo .borde-titulo span,
+.artesanos .titulo .borde-titulo span,
+.contactos .titulo .borde-titulo span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+}
+
+@media (max-width: 900px) {
+  .borde-titulo {
+    display: none;
+  }
+  .titulo-header {
+    width: 100%;
+    -webkit-box-flex: initial;
+        -ms-flex: initial;
+            flex: initial;
+    max-width: initial;
+  }
+  .titulo-header h1 {
+    font-size: 2em;
+  }
+}
+
+/*--------------------------------------------------------------
+  # Hero Section
+  --------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 80vh;
+  background: url("../img/banner.png") center center no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-top: 70px;
+  padding: 0;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(56, 64, 70, 0.4);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .container {
+  z-index: 2;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero h1 span {
+  border-bottom: 4px solid #3498db;
+}
+
+#hero h2 {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+#hero .btn-get-started {
+  margin-top: 10px;
+  border: 2px solid #252121;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 10%;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #252121;
+}
+
+#hero .btn-get-started:hover {
+  background-color: white;
+  color: #000;
+}
+
+@media (max-width: 992px) {
+  #hero {
+    height: calc(100vh - 70px);
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+/*--------------------------------------------------------------
+  # What We Do
+  --------------------------------------------------------------*/
+.what-we-do {
+  background-color: #fdf6ec;
+}
+
+.what-we-do .icon-box {
+  text-align: center;
+  padding: 30px 20px;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  background-color: #fdf9f3;
+}
+
+.what-we-do .icon-box img {
+  margin: 0 auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 400px;
+  background: #eaf4fb;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,19 +179,345 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  background: #57544e;
-  color: #fff;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  margin-bottom: 20px;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
-.back-to-top i:hover {
-  background: #797163;
+.what-we-do .icon-box h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.what-we-do .icon-box h4 a {
+  color: #384046;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+.what-we-do .icon-box p {
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.what-we-do .icon-box:hover {
+  border-color: #fff;
+  -webkit-box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+}
+
+.what-we-do .icon-box:hover h4 a, .what-we-do .icon-box:hover .icon i {
+  color: #8f816c;
+}
+
+/*--------------------------------------------------------------
+  # Services
+  --------------------------------------------------------------*/
+.services .icon-box {
+  padding: 30px;
+  border-radius: 6px;
+  background: #fff;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+.services .icon-box i {
+  float: left;
+  color: #3498db;
+  font-size: 40px;
+}
+
+.services .icon-box h4 {
+  margin-left: 70px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.services .icon-box h4 a {
+  color: #384046;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.services .icon-box p {
+  margin-left: 70px;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+.services .icon-box:hover {
+  -webkit-box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.08);
+}
+
+.services .icon-box:hover h4 a {
+  color: #3498db;
+}
+
+/*--------------------------------------------------------------
+  # Servicio al cliente
+  --------------------------------------------------------------*/
+.servicio .container-servicio {
+  padding: 30px 20px;
+}
+
+.servicio h3 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #353535;
+  cursor: pointer;
+}
+
+.servicio h3:hover {
+  color: black;
+}
+
+.container-servicio .servicio-info {
+  max-height: 0;
+  -webkit-transition: max-height 0.5s ease-out;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+
+.container-servicio .servicio-active {
+  max-height: 1000px;
+  -webkit-transition: max-height 0.5s ease-in;
+  transition: max-height 0.5s ease-in;
+}
+
+/*--------------------------------------------------------------
+  # About
+  --------------------------------------------------------------*/
+.about {
+  padding: 0;
+}
+
+.about .box {
+  margin: 0;
+}
+
+.about .box img {
+  width: 100%;
+  max-height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.about .box .box-img {
+  padding: 0px;
+}
+
+.about .box .box-info {
+  padding: 20px;
+}
+
+.about .box .box-info h1 {
+  font-weight: bold;
+}
+
+.about .box .box-info h3 {
+  padding: 20px;
+}
+
+.about .box .box-info ul {
+  font-size: 1.3em;
+}
+
+.about .box .box-info ul li {
+  padding: 20px 10px;
+}
+
+@media (max-width: 678px) {
+  .about .box .box-info h1 {
+    font-size: 1.3em;
+  }
+  .about .box .box-info h3 {
+    font-size: 1em;
+  }
+  .about .box .box-info ul {
+    font-size: 1em;
+  }
+  .about .box .box-info ul li {
+    padding: 10px;
+  }
+}
+
+.about .box-background-mision {
+  margin: 0;
+  background: url("../img/nosotros/image2.jpg") no-repeat;
+  background-size: 100%;
+}
+
+.about .box-background-mision .mision {
+  margin-right: auto;
+  margin-left: 10%;
+}
+
+.about .box-background-mision .box-background__info {
   color: #fff;
+  max-width: 28%;
+  padding: 20px;
+  background-color: rgba(46, 35, 35, 0.74);
+  text-align: center;
+}
+
+.about .box-background-mision .box-background__info h1 {
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media (max-width: 950px) {
+  .about .box-background-mision .box-background__info {
+    max-width: 58%;
+  }
+  .about .box-background-mision .box-background__info h1 {
+    font-size: 95%;
+  }
+  .about .box-background-mision .box-background__info h3 {
+    font-size: 95%;
+  }
+}
+
+@media (max-width: 500px) {
+  .about .box-background-mision .box-background__info {
+    max-width: 80%;
+  }
+  .about .box-background-mision .box-background__info h1 {
+    font-size: 90%;
+  }
+  .about .box-background-mision .box-background__info h3 {
+    font-size: 80%;
+  }
+}
+
+.about .box-background-filosofia {
+  margin: 0;
+  background: url("../img/nosotros/image3.jpg") no-repeat;
+  background-size: 100%;
+}
+
+.about .box-background-filosofia .filosofia {
+  margin-right: 10%;
+  margin-left: auto;
+}
+
+.about .box-background-filosofia .box-background__info {
+  color: #fff;
+  max-width: 28%;
+  padding: 20px;
+  background-color: rgba(46, 35, 35, 0.74);
+  text-align: center;
+}
+
+.about .box-background-filosofia .box-background__info h1 {
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media (max-width: 950px) {
+  .about .box-background-filosofia .box-background__info {
+    max-width: 58%;
+  }
+  .about .box-background-filosofia .box-background__info h1 {
+    font-size: 95%;
+  }
+  .about .box-background-filosofia .box-background__info h3 {
+    font-size: 95%;
+  }
+}
+
+@media (max-width: 500px) {
+  .about .box-background-filosofia .box-background__info {
+    max-width: 80%;
+  }
+  .about .box-background-filosofia .box-background__info h1 {
+    font-size: 90%;
+  }
+  .about .box-background-filosofia .box-background__info h3 {
+    font-size: 80%;
+  }
+}
+
+/*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+#footer {
+  color: white;
+  font-size: 14px;
+  background: #444444;
+}
+
+/*--------------------------------------------------------------
+  # Hero - Tienda
+  --------------------------------------------------------------*/
+.hero-tienda {
+  padding-bottom: 0;
+}
+
+.hero-tienda .row {
+  width: 100%;
+  margin: 0;
+}
+
+.hero-tienda .row .img-dama {
+  width: 100%;
+  height: 80vh;
+  background: url("../img/alpaca-tienda.jpg") center center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+  text-align: center;
+}
+
+.hero-tienda .row .img-dama:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.hero-tienda .row .img-casa {
+  width: 100%;
+  height: 80vh;
+  background: url("../img/prendas-de-alpaca.jpg") center center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+.hero-tienda .row .img-casa:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.img-dama a, .img-casa a {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50%;
+  border-radius: 0%;
+  border: 1.5px solid #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.img-dama a:hover, .img-casa a:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
 }
 
 /*--------------------------------------------------------------
@@ -74,27 +547,6 @@ a:hover {
 
 #header .logo img {
   max-height: 60px;
-}
-
-/*--------------------------------------------------------------
-  # Header Social Links
-  --------------------------------------------------------------*/
-.header-social-links a {
-  color: #9ba6af;
-  padding-left: 8px;
-  display: inline-block;
-  line-height: 1px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-@media (max-width: 768px) {
-  .header-social-links {
-    padding-right: 48px;
-  }
-  .header-social-links a {
-    padding-left: 6px;
-  }
 }
 
 /*--------------------------------------------------------------
@@ -323,90 +775,313 @@ a:hover {
 }
 
 /*--------------------------------------------------------------
-  # Hero Section
+  # Artesanos
   --------------------------------------------------------------*/
-#hero {
+.artesanos {
+  padding-bottom: 0%;
+}
+
+.artesanos .ayudanos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+  height: 90vh;
   width: 100%;
-  height: 80vh;
-  background: url("../img/banner.png") center center;
-  background-size: cover;
-  position: relative;
-  margin-top: 70px;
-  padding: 0;
+  background-color: #faedd6;
 }
 
-#hero:before {
-  content: "";
-  background: rgba(56, 64, 70, 0.4);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
+.artesanos .ayudanos-info {
+  z-index: 10;
+  padding: 20px;
+  background-color: #faedd6;
 }
 
-#hero .container {
-  z-index: 2;
+.artesanos .ayudanos-info * {
+  margin: 20px 0px;
+  text-align: center;
 }
 
-#hero h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
-}
-
-#hero h1 span {
-  border-bottom: 4px solid #3498db;
-}
-
-#hero h2 {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 30px;
-  font-size: 24px;
-}
-
-#hero .btn-get-started {
-  margin-top: 10px;
-  border: 2px solid #252121;
+.artesanos .ayudanos-info h1 {
+  font-size: 7rem;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 13px;
-  letter-spacing: 2px;
-  display: inline-block;
-  padding: 12px 10%;
-  -webkit-transition: ease-in-out 0.3s;
-  transition: ease-in-out 0.3s;
-  color: #fff;
-  text-transform: uppercase;
-  background-color: #252121;
+  margin-right: 10%;
 }
 
-.btn-hero:hover {
-  background-color: white;
-  color: #000;
+.artesanos .ayudanos-info h6 {
+  letter-spacing: 5px;
 }
 
-#hero .btn-get-started:hover {
-  background-color: white;
-  color: #000;
+.artesanos .ayudanos-img {
+  position: relative;
 }
 
-@media (max-width: 992px) {
-  #hero {
-    height: calc(100vh - 70px);
+.artesanos .ayudanos img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.artesanos .ayudanos-img-left img {
+  -webkit-animation-name: ayudanos-left;
+          animation-name: ayudanos-left;
+  z-index: 1;
+  position: absolute;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+.artesanos .ayudanos-img-right img {
+  -webkit-animation-name: ayudanos-right;
+          animation-name: ayudanos-right;
+  z-index: 1;
+  position: absolute;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@-webkit-keyframes ayudanos-left {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
   }
 }
 
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 30px;
-    line-height: 36px;
+@keyframes ayudanos-left {
+  from {
+    left: 100%;
   }
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
+  to {
+    left: 0%;
+  }
+}
+
+@-webkit-keyframes ayudanos-right {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+@keyframes ayudanos-right {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+.artesano {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 90vh;
+  background-color: rgba(49, 48, 48, 0.7);
+}
+
+.artesano-img {
+  width: 65%;
+  height: 100%;
+}
+
+.artesano-info {
+  width: 35%;
+  height: 100%;
+  position: relative;
+}
+
+.artesano-info span {
+  font-size: 250%;
+}
+
+.artesano-info .info {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(49, 48, 48, 0.7);
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  color: white;
+}
+
+.artesano-info video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+}
+
+.artesano .ver-mas {
+  font-size: 150%;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.712);
+  color: white;
+  border: 2px solid black;
+  padding: 5px 20px;
+  width: 100%;
+  margin-top: 20px;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+}
+
+.artesano .ver-mas:hover {
+  color: #000;
+  background-color: white;
+}
+
+.artesano-container img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.artesano-par img {
+  left: -100%;
+  -webkit-transition: left 4s;
+  transition: left 4s;
+}
+
+.artesano-par img.active {
+  left: 0%;
+}
+
+.artesano-impar img {
+  right: -100%;
+  -webkit-transition: right 4s;
+  transition: right 4s;
+}
+
+.artesano-impar img.active {
+  right: 0%;
+}
+
+.artesano-video {
+  padding: 0px 50px;
+  background-color: black;
+  height: 0;
+  -webkit-transition: height 2s;
+  transition: height 2s;
+}
+
+.artesano-video-active {
+  height: 80vh;
+}
+
+.artesano-video video {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 760px) {
+  .artesano-impar .artesano-info {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .artesano-impar .artesano-img {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .artesano {
+    height: 100%;
+    background-color: white;
+  }
+  .artesano-img {
+    width: 100%;
+    height: 100%;
+    position: initial;
+  }
+  .artesano-info {
+    width: 100%;
+    height: 100%;
+    position: initial;
+  }
+  .artesano-info .info {
+    position: initial;
+    background-color: rgba(224, 224, 224, 0.7);
+    color: black;
+  }
+  .artesano-info video {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .ayudanos {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    height: 100%;
+  }
+  .ayudanos-img {
+    display: none;
+  }
+  .ayudanos-info h1 {
+    margin: 0%;
+    font-size: 4rem;
+  }
+}
+
+/*--------------------------------------------------------------
+  # Contactanos
+  --------------------------------------------------------------*/
+.contactos .info input, .contactos .info textarea {
+  width: 100%;
+  border-radius: 0;
+  border: 2px solid #dddcdc;
+  padding: 5px;
+  font-size: 100%;
+}
+
+.contactos .info input:focus, .contactos .info textarea:focus {
+  border: 2px solid black;
+}
+
+.contactos .info .enviar {
+  font-size: 150%;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: 2px solid black;
+  padding: 5px 20px;
+  width: 100%;
+  margin-top: 20px;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.contactos .info .enviar:hover {
+  color: #000;
+  background-color: white;
+}
+
+@media (max-width: 705px) {
+  .contactos .info {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 520px) {
+  .contactos .info {
+    max-width: 280px;
+  }
+  .contactos .info input, .contactos .info textarea, .contactos .info h5 {
+    font-size: 0.9em;
   }
 }
 
@@ -445,269 +1120,112 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # What We Do
+  # Productos -Tienda
   --------------------------------------------------------------*/
-.what-we-do {
-  background-color: #fdf6ec;
+.productos {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  grid-gap: 2em 4em;
+  padding: 0px 40px;
 }
 
-.what-we-do .icon-box {
-  text-align: center;
-  padding: 30px 20px;
-  -webkit-transition: all ease-in-out 0.3s;
-  transition: all ease-in-out 0.3s;
-  background-color: #fdf9f3;
-}
-
-.what-we-do .icon-box img {
-  margin: 0 auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+.productos .producto img {
   width: 100%;
-  height: 400px;
-  background: #eaf4fb;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 20px;
-  -webkit-transition: ease-in-out 0.3s;
-  transition: ease-in-out 0.3s;
-}
-
-.what-we-do .icon-box h4 {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 24px;
-}
-
-.what-we-do .icon-box h4 a {
-  color: #384046;
-  -webkit-transition: ease-in-out 0.3s;
-  transition: ease-in-out 0.3s;
-}
-
-.what-we-do .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.what-we-do .icon-box:hover {
-  border-color: #fff;
-  -webkit-box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
-}
-
-.what-we-do .icon-box:hover h4 a, .what-we-do .icon-box:hover .icon i {
-  color: #8f816c;
-}
-
-/*--------------------------------------------------------------
-  # About
-  --------------------------------------------------------------*/
-.about {
-  padding: 0;
-}
-
-.about .box {
-  margin: 0;
-}
-
-.about .box img {
-  width: 100%;
-  max-height: 500px;
+  height: 380px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.about .box .box-img {
-  padding: 0px;
+.productos .producto-info {
+  margin-top: 20px;
 }
 
-.about .box .box-info {
-  padding: 20px;
-}
-
-.about .box .box-info h1 {
+.productos .producto-info * {
   font-weight: bold;
 }
 
-.about .box .box-info h3 {
-  padding: 20px;
+.productos .producto-info #producto-info-titulo {
+  font-family: 'Times New Roman', Times, serif;
+  color: #4e3e1f;
 }
 
-.about .box .box-info ul {
-  font-size: 1.3em;
+.productos .producto-info #producto-info-titulo:hover {
+  border-bottom: 2px solid #5f583f;
 }
 
-.about .box .box-info ul li {
-  padding: 20px 10px;
-}
-
-.about .box-background-mision, .about .box-background-filosofia {
-  margin: 0;
-}
-
-.about .box-background-mision .mision, .about .box-background-filosofia .mision {
-  margin-right: auto;
-  margin-left: 10%;
-}
-
-.about .box-background-mision .filosofia, .about .box-background-filosofia .filosofia {
-  margin-right: 10%;
-  margin-left: auto;
-}
-
-.about .box-background-mision .box-background__info, .about .box-background-filosofia .box-background__info {
-  color: #fff;
-  max-width: 28%;
-  padding: 20px;
-  background-color: rgba(46, 35, 35, 0.74);
-  text-align: center;
-}
-
-.about .box-background-mision .box-background__info h1, .about .box-background-filosofia .box-background__info h1 {
-  font-weight: bold;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.about .box-background-mision {
-  background: url("../img/nosotros/image2.jpg") center center no-repeat;
-}
-
-.about .box-background-filosofia {
-  background: url("../img/nosotros/image3.jpg") center center no-repeat;
-}
-
-/*--------------------------------------------------------------
-  # Services
-  --------------------------------------------------------------*/
-.services .icon-box {
-  padding: 30px;
-  border-radius: 6px;
-  background: #fff;
-  -webkit-transition: ease-in-out 0.3s;
-  transition: ease-in-out 0.3s;
-}
-
-.services .icon-box i {
-  float: left;
-  color: #3498db;
-  font-size: 40px;
-}
-
-.services .icon-box h4 {
-  margin-left: 70px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.services .icon-box h4 a {
-  color: #384046;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.services .icon-box p {
-  margin-left: 70px;
-  line-height: 24px;
-  font-size: 14px;
-}
-
-.services .icon-box:hover {
-  -webkit-box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.08);
-          box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.08);
-}
-
-.services .icon-box:hover h4 a {
-  color: #3498db;
-}
-
-/*--------------------------------------------------------------
-  # Footer
-  --------------------------------------------------------------*/
-#footer {
-  color: white;
-  font-size: 14px;
-  background: #444444;
-}
-
-/*--------------------------------------------------------------
-  # Hero - Tienda
-  --------------------------------------------------------------*/
-.hero-tienda {
-  padding-bottom: 0;
-}
-
-.hero-tienda .row {
-  width: 100%;
-  margin: 0;
-}
-
-.hero-tienda .row .img-dama {
-  width: 100%;
-  height: 80vh;
-  background: url("../img/alpaca-tienda.jpg") center center;
-  background-size: cover;
-  position: relative;
-  padding: 0;
-  text-align: center;
-}
-
-.hero-tienda .row .img-dama:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.hero-tienda .row .img-casa {
-  width: 100%;
-  height: 80vh;
-  background: url("../img/prendas-de-alpaca.jpg") center center;
-  background-size: cover;
-  position: relative;
-  padding: 0;
-}
-
-.hero-tienda .row .img-casa:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-.img-dama a, .img-casa a {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 50%;
-  border-radius: 0%;
-  border: 1.5px solid #000;
-  color: #fff;
-  font-weight: bold;
+.productos .producto-info #producto-info-precio {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 120%;
 }
 
-.img-dama a:hover, .img-casa a:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-  color: black;
+.productos .producto-info #producto-info-descripcion {
+  color: #4e3e1f;
+  font-size: 90%;
+}
+
+.productos .producto button {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.753);
+  border-bottom: 2px solid #727272;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0;
+  text-align: center;
+  width: 100%;
+  height: 0px;
+}
+
+.productos .producto button:hover span {
+  border-bottom: 1px solid #000;
+}
+
+.productos .producto button span {
+  display: none;
+}
+
+.productos .producto-img {
+  position: relative;
+}
+
+.productos .producto-img:hover button {
+  height: 40px;
+}
+
+.productos .producto-img:hover button span {
+  display: initial;
+}
+
+@media (max-width: 1205px) {
+  .producto-img button {
+    display: none;
+  }
+  .producto .modal-box .modal-contenido {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@media (max-width: 1025px) {
+  .productos {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .productos {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -732,22 +1250,21 @@ section {
   color: #000;
 }
 
-.filtros .filtros-tipo {
+.tienda .filtros h6 {
+  font-weight: bold;
+}
+
+.tienda .filtros-tipo {
   margin-top: 40px;
   margin-bottom: 20px;
   border-bottom: 2px solid #3d3c3c;
 }
 
-.filtros .filtros-tipo h4 {
+.tienda .filtros-tipo h4 {
   font-weight: bold;
 }
 
-.filtros-tipo .catalogo img {
-  width: 18px;
-  height: 18px;
-}
-
-.filtros-tipo .catalogo {
+.tienda .filtros-tipo .catalogo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -763,15 +1280,16 @@ section {
   transition: 0.5s;
 }
 
-.filtros-tipo .catalogo:hover {
+.tienda .filtros-tipo .catalogo:hover {
   background-color: rgba(235, 220, 208, 0.534);
 }
 
-.filtros-tipo h6 {
-  font-weight: bold;
+.tienda .filtros-tipo .catalogo img {
+  width: 18px;
+  height: 18px;
 }
 
-.filtros-tipo .options {
+.tienda .filtros-tipo .options {
   padding-top: 10px;
   max-height: 0;
   -webkit-transition: max-height 0.65s ease-out;
@@ -779,13 +1297,13 @@ section {
   overflow: hidden;
 }
 
-.filtros-tipo .options-active {
+.tienda .filtros-tipo .options-active {
   max-height: 600px;
   -webkit-transition: max-height 0.75s ease-in;
   transition: max-height 0.75s ease-in;
 }
 
-.filtros-tipo .options h5 a {
+.tienda .filtros-tipo .options h5 a {
   display: block;
   padding: 15px;
   margin: 0%;
@@ -794,11 +1312,11 @@ section {
   cursor: pointer;
 }
 
-.filtros-tipo .options h5 a:hover {
+.tienda .filtros-tipo .options h5 a:hover {
   background-color: rgba(235, 220, 208, 0.534);
 }
 
-.filtros-tipo .options h6 a {
+.tienda .filtros-tipo .options h6 a {
   display: block;
   padding: 10px;
   margin: 0%;
@@ -807,7 +1325,7 @@ section {
   cursor: pointer;
 }
 
-.filtros-tipo .options h6 a:hover {
+.tienda .filtros-tipo .options h6 a:hover {
   background-color: rgba(235, 220, 208, 0.534);
 }
 
@@ -821,97 +1339,13 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-  # Productos -Tienda
-  --------------------------------------------------------------*/
-.productos {
-  height: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  grid-gap: 2em 4em;
-  padding: 0px 40px;
-}
-
-.producto img {
-  width: 100%;
-  height: 380px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.producto .producto-info #producto-info-titulo:hover {
-  border-bottom: 2px solid #5f583f;
-}
-
-.producto-img {
-  position: relative;
-}
-
-.producto-img:hover button {
-  height: 40px;
-}
-
-.producto-img:hover button span {
-  display: initial;
-}
-
-.producto-img button {
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  background-color: rgba(255, 255, 255, 0.753);
-  color: #000;
-  font-weight: bold;
-  border: none;
-  border-bottom: 2px solid #727272;
-  cursor: pointer;
-  border-radius: 0;
-  text-align: center;
-  width: 100%;
-  height: 0px;
-}
-
-.producto-img button span {
-  display: none;
-}
-
-.producto-img button:hover span {
-  border-bottom: 1px solid #000;
-}
-
-.producto-info {
-  margin-top: 20px;
-}
-
-.producto-info * {
-  font-weight: bold;
-}
-
-.producto-info #producto-info-titulo {
-  font-family: 'Times New Roman', Times, serif;
-  color: #4e3e1f;
-}
-
-.producto-info #producto-info-precio {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 120%;
-}
-
-.producto-info #producto-info-descripcion {
-  color: #4e3e1f;
-  font-size: 90%;
-}
-
+/* Modal Content */
 /* The Modal (background) */
-.producto .modal-box {
+.modal-box {
   display: none;
 }
 
-.producto .modal-box-active {
+.modal-box-active {
   display: block;
   position: fixed;
   z-index: 1072;
@@ -923,8 +1357,7 @@ section {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content */
-.producto .modal-contenido {
+.modal-contenido {
   background-color: #fefefe;
   margin: 5% auto;
   padding: 20px;
@@ -934,14 +1367,19 @@ section {
   border-radius: 0;
   position: relative;
   -webkit-animation-name: animatetop;
+          animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
+          animation-duration: 0.4s;
 }
 
-.producto .modal-contenido .producto-page {
+.modal-contenido .producto-page {
   height: 90%;
   overflow: auto;
+}
+
+.modal-contenido section {
+  margin: 0%;
+  padding: 0%;
 }
 
 /* Add Animation */
@@ -955,7 +1393,6 @@ section {
     opacity: 1;
   }
 }
-
 @keyframes animatetop {
   from {
     top: -300px;
@@ -965,11 +1402,6 @@ section {
     top: 0;
     opacity: 1;
   }
-}
-
-.producto .modal-contenido section {
-  margin: 0%;
-  padding: 0%;
 }
 
 /* The Close Button */
@@ -983,97 +1415,15 @@ section {
   text-align: right;
 }
 
-.close-end {
-  display: block;
-  height: 28px;
-}
-
-.producto .close:hover,
-.producto .close:focus {
+.close:hover, .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-@media (max-width: 1205px) {
-  .producto-img button {
-    display: none;
-  }
-  .producto .modal-box .modal-contenido {
-    width: 80%;
-    height: 80%;
-  }
-}
-
-@media (max-width: 1025px) {
-  .productos {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .productos {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 550px) {
-  .productos {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-/*--------------------------------------------------------------
-  # Gloabl Pages
-  --------------------------------------------------------------*/
-.distribuidores .titulo,
-.servicio .titulo,
-.artesanos .titulo,
-.contactos .titulo {
-  text-align: center;
-  padding: 20px;
-  margin: auto;
-}
-
-.distribuidores .titulo .borde-titulo,
-.servicio .titulo .borde-titulo,
-.artesanos .titulo .borde-titulo,
-.contactos .titulo .borde-titulo {
-  position: relative;
-}
-
-.distribuidores .titulo .borde-titulo span,
-.servicio .titulo .borde-titulo span,
-.artesanos .titulo .borde-titulo span,
-.contactos .titulo .borde-titulo span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.close-end {
   display: block;
-  height: 2px;
-  width: 100%;
-  background-color: black;
-}
-
-@media (max-width: 900px) {
-  .borde-titulo {
-    display: none;
-  }
-  .titulo-header {
-    width: 100%;
-    -webkit-box-flex: initial;
-        -ms-flex: initial;
-            flex: initial;
-    max-width: initial;
-  }
-  .titulo-header h1 {
-    font-size: 2em;
-  }
+  height: 28px;
 }
 
 /*--------------------------------------------------------------
@@ -1269,351 +1619,6 @@ section {
 @media (max-width: 767px) {
   .producto-page-imagenes .imagen-catalogo {
     display: none;
-  }
-}
-
-/*--------------------------------------------------------------
-  # Servicio al cliente
-  --------------------------------------------------------------*/
-.servicio .container-servicio {
-  padding: 30px 20px;
-}
-
-.servicio h3 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #353535;
-  cursor: pointer;
-}
-
-.servicio h3:hover {
-  color: black;
-}
-
-.container-servicio .servicio-info {
-  max-height: 0;
-  -webkit-transition: max-height 0.5s ease-out;
-  transition: max-height 0.5s ease-out;
-  overflow: hidden;
-}
-
-.container-servicio .servicio-active {
-  max-height: 1000px;
-  -webkit-transition: max-height 0.5s ease-in;
-  transition: max-height 0.5s ease-in;
-}
-
-/*--------------------------------------------------------------
-  # Artesanos
-  --------------------------------------------------------------*/
-.artesanos {
-  padding-bottom: 0%;
-}
-
-.artesanos .ayudanos {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr 1fr;
-      grid-template-columns: 1fr 2fr 1fr;
-  height: 90vh;
-  width: 100%;
-  background-color: #faedd6;
-}
-
-.artesanos .ayudanos img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.ayudanos .ayudanos-info {
-  z-index: 10;
-  padding: 20px;
-  background-color: #faedd6;
-}
-
-.ayudanos .ayudanos-info * {
-  margin: 20px 0px;
-}
-
-.artesanos .ayudanos .ayudanos-img {
-  position: relative;
-}
-
-.artesanos .ayudanos .ayudanos-img-left img {
-  z-index: 1;
-  position: absolute;
-  -webkit-animation-name: ayudanos-left;
-          animation-name: ayudanos-left;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-}
-
-.artesanos .ayudanos .ayudanos-img-right img {
-  z-index: 1;
-  position: absolute;
-  -webkit-animation-name: ayudanos-right;
-          animation-name: ayudanos-right;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-}
-
-@-webkit-keyframes ayudanos-left {
-  from {
-    left: 100%;
-  }
-  to {
-    left: 0%;
-  }
-}
-
-@keyframes ayudanos-left {
-  from {
-    left: 100%;
-  }
-  to {
-    left: 0%;
-  }
-}
-
-@-webkit-keyframes ayudanos-right {
-  from {
-    right: 100%;
-  }
-  to {
-    right: 0%;
-  }
-}
-
-@keyframes ayudanos-right {
-  from {
-    right: 100%;
-  }
-  to {
-    right: 0%;
-  }
-}
-
-.ayudanos .ayudanos-info h1 {
-  text-align: center;
-  font-size: 7rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  margin-right: 10%;
-}
-
-.ayudanos .ayudanos-info h6 {
-  text-align: center;
-  letter-spacing: 5px;
-}
-
-.ayudanos .ayudanos-info p {
-  text-align: center;
-}
-
-.artesanos .artesano {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  height: 90vh;
-  background-color: rgba(49, 48, 48, 0.7);
-}
-
-.artesanos .artesano .artesano-img {
-  width: 65%;
-  height: 100%;
-}
-
-.artesanos .artesano .artesano-info {
-  width: 35%;
-  height: 100%;
-  position: relative;
-}
-
-.artesanos .artesano .artesano-info span {
-  font-size: 250%;
-}
-
-.artesanos .artesano .artesano-info .ver-mas {
-  font-size: 150%;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.712);
-  color: white;
-  border: 2px solid black;
-  padding: 5px 20px;
-  width: 100%;
-  margin-top: 20px;
-  -webkit-transition: background 0.8s;
-  transition: background 0.8s;
-}
-
-.artesanos .artesano .artesano-info .ver-mas:hover {
-  color: #000;
-  background-color: white;
-}
-
-.artesanos .artesano .artesano-info .info {
-  position: absolute;
-  z-index: 10;
-  background-color: rgba(49, 48, 48, 0.7);
-  width: 100%;
-  height: 100%;
-  padding: 30px;
-  color: white;
-}
-
-.artesanos .artesano .artesano-info video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 1;
-}
-
-.artesanos .artesano-container img {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.artesanos .artesano-par img {
-  left: -100%;
-  -webkit-transition: left 4s;
-  transition: left 4s;
-}
-
-.artesanos .artesano-par img.active {
-  left: 0%;
-}
-
-.artesanos .artesano-impar img {
-  right: -100%;
-  -webkit-transition: right 4s;
-  transition: right 4s;
-}
-
-.artesanos .artesano-impar img.active {
-  right: 0%;
-}
-
-.artesanos .artesano-video {
-  padding: 0px 50px;
-  background-color: black;
-  height: 0;
-  -webkit-transition: height 2s;
-  transition: height 2s;
-}
-
-.artesanos .artesano-video-active {
-  height: 80vh;
-}
-
-.artesanos .artesano-video video {
-  width: 100%;
-  height: 100%;
-}
-
-@media (max-width: 760px) {
-  .artesanos .artesano {
-    height: 100%;
-    background-color: white;
-  }
-  .artesanos .artesano .artesano-img, .artesanos .artesano .artesano-info {
-    width: 100%;
-    height: 100%;
-    position: initial;
-  }
-  .artesanos .artesano .artesano-info .info {
-    position: initial;
-    background-color: rgba(224, 224, 224, 0.7);
-    color: black;
-  }
-  .artesanos .artesano .artesano-info video {
-    display: none;
-  }
-  .artesano-impar .artesano .artesano-info {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-  }
-  .artesano-impar .artesano .artesano-img {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-  }
-}
-
-@media (max-width: 720px) {
-  .artesanos .ayudanos .ayudanos-img {
-    display: none;
-  }
-  .artesanos .ayudanos {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-    height: 100%;
-  }
-  .ayudanos .ayudanos-info h1 {
-    margin: 0%;
-    font-size: 4rem;
-  }
-}
-
-div.eapps-widget {
-  position: inherit !important;
-}
-
-/*--------------------------------------------------------------
-  # Contactanos
-  --------------------------------------------------------------*/
-.contactos .info input, .contactos .info textarea {
-  width: 100%;
-  border-radius: 0;
-  border: 2px solid #dddcdc;
-  padding: 5px;
-  font-size: 100%;
-}
-
-.contactos .info input:focus, .contactos .info textarea:focus {
-  border: 2px solid black;
-}
-
-.contactos .info .enviar {
-  font-size: 150%;
-  font-weight: bold;
-  background: black;
-  color: white;
-  border: 2px solid black;
-  padding: 5px 20px;
-  width: 100%;
-  margin-top: 20px;
-  -webkit-transition: background 0.5s;
-  transition: background 0.5s;
-}
-
-.contactos .info .enviar:hover {
-  color: #000;
-  background-color: white;
-}
-
-@media (max-width: 705px) {
-  .contactos .info {
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 520px) {
-  .contactos .info {
-    max-width: 280px;
-  }
-  .contactos .info input, .contactos .info textarea, .contactos .info h5 {
-    font-size: 1em;
   }
 }
 /*# sourceMappingURL=style.css.map */

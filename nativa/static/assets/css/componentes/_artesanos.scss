@@ -1,0 +1,194 @@
+  /*--------------------------------------------------------------
+  # Artesanos
+  --------------------------------------------------------------*/
+  .artesanos{
+    padding-bottom: 0%;
+    .ayudanos{
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      height: 90vh;
+      width: 100%;
+      background-color: rgb(250, 237, 214);
+      &-info{
+        z-index: 10;
+        padding: 20px;
+        background-color: rgb(250, 237, 214);
+        *{
+          margin: 20px 0px;
+          text-align: center;
+        }
+                
+        h1{          
+          font-size: 7rem;
+          font-family: Arial, Helvetica, sans-serif;
+          font-weight: bold;
+          margin-right: 10%;
+        }
+        h6{
+          letter-spacing: 5px;
+        }
+      }
+      &-img {
+        position: relative;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @mixin ayudanosImg {
+        z-index: 1;
+        position: absolute;        
+        animation-duration: 2s;
+      }
+      &-img-left img{
+        animation-name: ayudanos-left;
+        @include ayudanosImg()
+      }
+      &-img-right img{
+        animation-name: ayudanos-right;
+        @include ayudanosImg()
+      }
+    }
+  }
+  
+  @keyframes ayudanos-left{
+    from {left:100%}
+    to{left:0%}
+  }
+  @keyframes ayudanos-right{
+    from {right:100%}
+    to{right:0%}
+  }
+
+  
+  .artesano{
+    display: flex;
+    flex-wrap: wrap;
+    height: 90vh;
+    background-color: rgba(49, 48, 48, 0.7);
+    &-img{
+      width: 65%;
+      height: 100%
+    }
+    &-info{
+      width: 35%;
+      height: 100%;
+      position: relative;
+      span{
+        font-size: 250%;
+      }
+      .info{
+        position: absolute;
+        z-index: 10;
+        background-color: rgba(49, 48, 48, 0.7);
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        color: white;
+      }
+      video{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+    }
+    .ver-mas{
+      font-size: 150%;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.712);
+      color: white;
+      border: 2px solid black;
+      padding: 5px 20px;
+      width: 100%;
+      margin-top: 20px;
+      transition: background 0.8s;
+      &:hover{
+        color: #000;
+        background-color: white;  
+      }
+    }
+    &-container img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &-par img{
+      left:-100%;
+      transition: left 4s;
+      &.active{
+        left: 0%;
+      }
+    }
+    &-impar img{
+      right:-100%;
+      transition: right 4s;
+      &.active{
+        right: 0%;
+      }
+    }
+  }
+
+  
+  .artesano-video{
+   padding: 0px 50px; 
+   background-color: black;
+   height: 0;
+   transition: height 2s;
+    &-active{
+      height: 80vh;
+    }
+    video{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .artesano-impar .artesano-info{
+      order: 2;
+    }
+    .artesano-impar .artesano-img{
+      order: 1;
+    }
+    .artesano{
+      height: 100%;
+      background-color: white;
+      &-img{
+        width: 100%;
+        height: 100%;
+        position: initial;   
+      }
+      &-info{
+        width: 100%;
+        height: 100%;
+        position: initial;
+        .info{
+          position: initial;
+          background-color: rgba(224, 224, 224, 0.7);
+          color: black;
+        } 
+        video{
+          display: none;
+        }
+      }
+    }
+  }
+  @media (max-width: 720px) {    
+    .ayudanos{
+      grid-template-columns: 1fr;
+      height: 100%;
+      &-img{
+        display: none;
+      }
+      &-info h1{
+        margin: 0%;
+        font-size: 4rem;
+      }
+    }    
+  }

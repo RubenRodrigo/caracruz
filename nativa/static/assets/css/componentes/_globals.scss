@@ -1,0 +1,58 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  a {
+    color: rgb(41, 40, 40);
+  }
+  
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  div.eapps-widget {
+    position: inherit !important;
+  }
+    /*--------------------------------------------------------------
+  # Gloabl Pages
+  --------------------------------------------------------------*/
+  .distribuidores .titulo,
+  .servicio .titulo,
+  .artesanos .titulo,
+  .contactos .titulo{
+    text-align: center;
+    padding: 20px;
+    margin: auto
+  }
+  .distribuidores .titulo .borde-titulo,
+  .servicio .titulo .borde-titulo,
+  .artesanos .titulo .borde-titulo,
+  .contactos .titulo .borde-titulo{
+    position: relative;
+  }
+  .distribuidores .titulo .borde-titulo span,
+  .servicio .titulo .borde-titulo span,
+  .artesanos .titulo .borde-titulo span,
+  .contactos .titulo .borde-titulo span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+  }
+  @media (max-width: 900px) {
+    .borde-titulo{
+      display: none;
+    }
+    .titulo-header{
+      width: 100%;
+      flex: initial;
+      max-width: initial;    
+    }
+    .titulo-header h1{
+      font-size: 2em;
+    }
+  }

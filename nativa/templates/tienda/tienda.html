@@ -105,7 +105,9 @@
                                                 </div>
                                                 <div class="col-md-6 producto-page-info">
                                                     <h3 class="produto-titulo">{{producto.nombre}}</h3>
-                                                    <h5 class="producto-precio">{{producto.precio}}</h5>
+                                                    <h5 class="producto-precio">
+                                                        {{producto.precio}}
+                                                    </h5>
                                                     <p class="producto-descripcion">{{producto.caracteristicas}}</p>
                                                     <h6>Colores</h6>
                                                     <div class="producto-colores">
@@ -153,7 +155,7 @@
                                 <a href="{% url 'producto' producto.id%}">
                                     <h5 id="producto-info-titulo">{{producto.nombre}}</h5>
                                 </a>
-                                <p id="producto-info-precio">S/ {{producto.precio}}</p>
+                                <p id="producto-info-precio"><strike class="text-muted">S/ {{producto.precio}}</strike>  S/ {{producto.precio}}</p>
                                 <p id="producto-info-descripcion">{{producto.caracteristicas}}</p>
                             </div>
                         </div>

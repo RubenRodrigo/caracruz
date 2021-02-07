@@ -1,0 +1,93 @@
+  /*--------------------------------------------------------------
+  # Productos -Tienda
+  --------------------------------------------------------------*/
+  .productos{  
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-sizing: border-box;
+    grid-gap: 2em 4em;
+    padding: 0px 40px;
+    .producto {
+      img{
+        width: 100%;
+        height: 380px;
+        object-fit: cover;        
+      }
+      &-info{        
+        margin-top: 20px;
+        *{
+          font-weight: bold;
+        }        
+        #producto-info-titulo{
+          font-family: 'Times New Roman', Times, serif;
+          color: rgb(78, 62, 31);
+          &:hover {
+            border-bottom: 2px solid rgb(95, 88, 63);
+          }
+        }
+        #producto-info-precio{
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          font-size: 120%;
+        }
+        #producto-info-descripcion{
+          color: rgb(78, 62, 31);
+          font-size: 90%;
+        }
+      }
+      button{
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        border: none;        
+        background-color: rgba(255, 255, 255, 0.753);
+        border-bottom: 2px solid rgb(114, 114, 114);
+        color: #000;    
+        font-weight: bold;        
+        cursor: pointer;
+        border-radius: 0;
+        text-align: center;
+        width: 100%;
+        height: 0px;
+        &:hover{ 
+          span{
+            border-bottom: 1px solid #000;
+          }          
+        }
+        span{
+          display: none;
+        }
+      }
+      &-img {
+        position: relative;
+        &:hover{
+          button{
+            height: 40px;
+            span{
+              display: initial;
+            } 
+          }
+        }    
+      }
+    }    
+  }
+     
+  @media (max-width: 1205px) {
+    .producto-img button{
+      display: none;
+    }
+    .producto .modal-box .modal-contenido{
+      width: 80%;
+      height: 80%;
+    }
+  }
+  @media (max-width: 1025px) {
+    .productos{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 550px) {
+    .productos{
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
