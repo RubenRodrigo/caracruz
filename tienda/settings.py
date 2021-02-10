@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'nativa.apps.NativaConfig'
+    'nativa.apps.NativaConfig',
+    'nested_admin',
 ]
 
 MIDDLEWARE = [

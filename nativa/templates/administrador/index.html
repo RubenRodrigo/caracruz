@@ -1,0 +1,63 @@
+{% extends 'administrador/main.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+	<section class="administrador">
+		<div class="contenedor">
+			<div class="categorias">
+				<h3>Categorias</h3>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<h5>Damas</h5>
+							<ul>
+								<li>Sweater</li>
+								<li>Gorro</li>
+								<li>Vestido</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<h5>Linea de Casa</h5>
+							<ul>
+								<li>Sweater</li>
+								<li>Gorro</li>
+								<li>Vestido</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="productos">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 producto">
+							<div class="producto__img">
+								<img src="{% static 'assets/img/alpaca-tela.jpg' %}" alt="">
+							</div>
+							<div class="producto__info">
+								<h4>Lorem ipsum dolor sit amet.</h4>
+							</div>
+						</div>
+						<div class="col-md-4 producto">
+							<div class="producto__img">
+								<img src="{% static 'assets/img/alpaca-tela.jpg' %}" alt="">
+							</div>
+							<div class="producto__info">
+								<h4>Lorem ipsum dolor sit amet.</h4>
+							</div>
+						</div>
+						<div class="col-md-4 producto">
+							<div class="producto__img">
+								<img src="{% static 'assets/img/alpaca-tela.jpg' %}" alt="">
+							</div>
+							<div class="producto__info">
+								<h4>Lorem ipsum dolor sit amet.</h4>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</section>
+</main>
+{% endblock content %}

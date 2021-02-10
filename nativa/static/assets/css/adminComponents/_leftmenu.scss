@@ -1,0 +1,19 @@
+.menu{    
+    background-color: $color-primario;
+    max-width: 200px;
+    height: 100%;
+    width: 100%; 
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    .menu__item{
+        color: $color-claro;
+        margin: 20px 0px;
+        p{
+            i{
+                font-size: 25px;
+            }
+        }
+    }
+}

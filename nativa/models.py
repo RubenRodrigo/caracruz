@@ -9,48 +9,52 @@ class Catalogo(models.Model):
         return self.nombre
 
 class Categoria(models.Model):
-    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE)
+    catalogo = models.ForeignKey(Catalogo, on_delete=models.SET_NULL, null=True, blank=True)
     nombre = models.CharField(max_length=200, null=True)
     def __str__(self):
         return self.nombre
 
 class Producto(models.Model):
-    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE, null=True, blank=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True, blank=True)    
+    catalogo = models.ForeignKey(Catalogo, on_delete=models.SET_NULL, null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True)    
     nombre = models.CharField(max_length=500, null=True)
-    caracteristicas = models.CharField(max_length=1000, null=True)
-    precio = models.FloatField()
+    caracteristicas = models.CharField(max_length=1000, null=True)    
     stock = models.IntegerField(default=0)
-    imagen = models.ImageField(upload_to="productos/", null=True)
-
+    precio = models.FloatField(null=True, blank=True)
+    precioFalso = models.FloatField(null=True, blank=True)    
+    date_added = models.DateTimeField(auto_created=True, null=True, blank=True)
     def __str__(self):
-        return self.nombre    
-    
-    @property
-    def imagenURL(self):
-        try:
-            url = self.imagen.url
-        except:
-            url = ''
-        return url
+        return self.nombre
 
-    @property
-    def imagenes(self):
-        imagenes = self.productoimagen_set.all()
-        return imagenes
+class ProductoColor(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True, blank=True)
+    color = models.ForeignKey("Color", on_delete=models.SET_NULL, null=True, blank=True)
+
+class ProductoTalla(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True, blank=True)
+    talla = models.ForeignKey("Talla", on_delete=models.SET_NULL, null=True, blank=True)
+    # @property
+    # def imagenURL(self):
+    #     try:
+    #         url = self.imagen.url
+    #     except:
+    #         url = ''
+    #     return url
+
+    # @property
+    # def imagenes(self):
+    #     imagenes = self.productoimagen_set.all()
+    #     return imagenes
     
-    @property
-    def colores(self):
-        colores = self.color_set.all()
-        return colores
-    
+    # @property
+    # def colores(self):
+    #     colores = self.color_set.all()
+    #     return colores
+
 class ProductoImagen(models.Model):
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True, blank=True)
     imagen = models.ImageField(upload_to="productos/", null=True)
 
-    def __str__(self):
-        return self.producto.nombre
-        
     @property
     def imagenURL(self):
         try:
@@ -60,10 +64,14 @@ class ProductoImagen(models.Model):
         return url
 
 
-class Color(models.Model):
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+class Color(models.Model):    
     nombre = models.CharField(max_length=200, null=True)
     codigo = models.CharField(max_length=100, null=True)
+    def __str__(self):
+        return self.nombre
+
+class Talla(models.Model):    
+    nombre = models.CharField(max_length=200, null=True)    
     def __str__(self):
         return self.nombre
 

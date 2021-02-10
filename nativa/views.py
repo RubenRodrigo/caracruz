@@ -19,8 +19,7 @@ def tienda(request):
     context = {
         'page_obj':page_obj,
         'catalogos':catalogos
-    }
-    print(context)
+    }    
     return render(request, tienda_template, context)
 
 def tienda_catalogo(request, catalogo_name):
@@ -84,8 +83,11 @@ def contactos(request):
 
 def producto(request, producto_id):
     producto = get_object_or_404(Producto, pk=producto_id)
-    productos=[producto]
+    productos={producto}
     context = {
         'productos': productos
     }
     return render(request, 'tienda/producto.html', context)
+
+def administrador(request):    
+    return render(request, 'administrador/index.html')

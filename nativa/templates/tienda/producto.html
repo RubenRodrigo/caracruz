@@ -3,37 +3,46 @@
 {% block content %}
 
 <main id="main">
-    {% for producto in productos %}
-    <section class="producto-page">
-        <div class="container">
-            <div class="row producto-container">
-                <div class="col-md-6 producto-page-imagenes">
+	{% for producto in productos %}
+	<section class="producto-page">
+		<div class="container">
+			<div class="row producto-container" id="producto-{{producto.id}}">				
+				<div class="col-md-6 producto-page-imagenes">
                     <div class="row">
                         <div id="carouselExampleIndicators{{ producto.id }}" class="carousel slide" data-ride="carousel" data-interval="false">
                             <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators{{ producto.id }}" data-slide-to="0" class="active"></li>
-                                {% for imagen in producto.imagenes %}
-                                <li data-target="#carouselExampleIndicators{{ producto.id }}" data-slide-to=" {{ forloop.counter }}"></li>
+                                
+                                {% for imagenes in producto.productoimagen_set.all %}
+								{% if forloop.counter == 1 %}
+									<li data-target="#carouselExampleIndicators{{ producto.id }}" data-slide-to="0" class="active"></li>
+								{% else %}
+									<li data-target="#carouselExampleIndicators{{ producto.id }}" data-slide-to=" {{ forloop.counter }}"></li>
+								{% endif %}                                
                                 {% endfor %}
-                                <li data-target="#carouselExampleIndicators{{ producto.id }}" data-slide-to=" {{ producto.imagenes.count|add:1 }}"></li>
-                              </ol>
-
+                                <li data-target="#carouselExampleIndicators{{ producto.id }}" data-slide-to="ultimo"></li>
+							</ol>
+							{% with producto.productoimagen_set.all as imagenes %}		
                             <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img src="{{producto.imagenURL}}" class="d-block w-100" alt="..." id="image-zoom">
-                              </div>
-                              {% for imagen in producto.imagenes %}
-                              <div class="carousel-item">
-                                <img src="{{imagen.imagenURL}}" class="d-block w-100" alt="..." id="image-zoom">         
-                              </div>                                                            
-                              {% endfor %}
+							  {% for imagen in imagenes %}
+								{% if forloop.counter == 1 %}
+								<div class="carousel-item active">
+									<img src="{{imagen.imagenURL}}" class="d-block w-100" alt="..." id="image-zoom">
+								</div>
+								{% else %}
+								<div class="carousel-item">
+									<img src="{{imagen.imagenURL}}" class="d-block w-100" alt="..." id="image-zoom">         
+								</div>
+								{% endif %}
+							  {% endfor %}
+                              
                               <div class="carousel-item">
                                 <video class="d-block w-100 carousel-item-video" controls>
                                     <source src="{% static 'assets/video/prueba_video.mp4' %}" type="video/mp4">
                                     Your browser does not support HTML video.
                                 </video>
-                              </div>
+                              </div>							  
                             </div>
+							{% endwith %}
 
                             <div class="image-zoom-result image-zoom-result-inactive" id="image-zoom-result">
 
@@ -49,49 +58,48 @@
                         </div>                                         
                     </div>                   
                 </div>
-                <div class="col-md-6 producto-page-info">
-                    <h3 class="produto-titulo">{{producto.nombre}}</h3>
-                    <h5 class="producto-precio">{{producto.precio}}</h5>
-                    <p class="producto-descripcion">{{producto.caracteristicas}}</p>
-                    <h6>Colores</h6>
-                    <div class="producto-colores">
-                        {% for color in producto.colores%}
-                        <div class="color">
-                            <span class="color-gray" style="background-color:#{{color.codigo}}"></span>
-                        </div>
-                        {% endfor %}                        
-                    </div>
-                    <h6>Tallas</h6>
-                    <div class="producto-tallas">
-                        <button>XXS</button>
-                        <button>XSML</button>
-                        <button>SML</button>
-                        <button>MED</button>
-                        <button>LRG</button>
-                        <button>XL</button>
-                        <button>36</button>
-                    </div>
-                    <h6>Cantidad</h6>
-                    <div class="producto-cantidad">
-                        <select name="" id="">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                    <button class="add-cart"><span>Añadir al carrito</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
-    {% endfor %}
-</main>
 
+
+				<div class="col-md-6 producto-page-info">
+					<h3 class="produto-titulo">{{producto.nombre}}</h3>					
+					<h5 class="producto-precio"><strike class="text-muted">S/ {{producto.precioFalso}}</strike> - S/ {{producto.precio}}</h5>					
+					<p class="producto-descripcion">{{producto.caracteristicas}}</p>
+					<h6>Colores</h6>
+					<div class="producto-colores">
+						{% for color in producto.productocolor_set.all %}
+							{% if forloop.counter == 1 %}
+								<div class="colores--prenda" id="active">
+									<button class="color" data-color="{{color.color.nombre}}" style="background-color:#{{color.color.codigo}}"></button>
+								</div>
+							{% else %}
+								<div class="colores--prenda">
+									<button class="color" data-color="{{color.color.nombre}}" style="background-color:#{{color.color.codigo}}"></button>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<h6>Tallas</h6>
+					<div class="producto-tallas">
+						{% for talla in producto.productotalla_set.all %}
+							<button class="talla">{{talla.talla.nombre}}</button>
+						{% endfor %}
+					</div>
+					<h6>Cantidad</h6>
+					<div class="producto-cantidad">
+						<select name="" id="">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>					
+					<button class="add-cart"><span>Añadir al carrito</span></button>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% endfor %}
+	<script src="{% static 'assets/js/colores.js' %}"></script>
+</main>
 {% endblock content %}

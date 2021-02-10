@@ -29,7 +29,7 @@ function mostraFiltros(e) {
     }
 }
 
-function mostrarProducto(e) {
+function mostrarProducto(e) {    
     if (e.target.classList.contains("ver-producto")) {
         e.preventDefault()
         const verProducto = e.target
@@ -71,14 +71,16 @@ function funcionalidadModal(e) {
     }
 }
 
-function cambiarImagen(e) {                
+function cambiarImagen(e) {
+    console.log(e);
     if(e.target.classList.contains("producto-imagen")){            
         var imagen = e.target
         imagen.src = imagen.dataset.productosecond;            
     }
 }
 
-function volverImagen(e) {        
+function volverImagen(e) {
+    console.log(e);
     if(e.target.classList.contains("producto-imagen")){
         var imagen = e.target
         imagen.src = imagen.dataset.productofirst;

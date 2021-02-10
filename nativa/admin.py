@@ -1,22 +1,26 @@
 from django.contrib import admin
-
+from nested_admin import NestedModelAdmin, NestedStackedInline, NestedTabularInline
 # Register your models here.
 from .models import *
 
 admin.site.register(Catalogo)
 admin.site.register(Categoria)
 admin.site.register(Color)
+admin.site.register(Talla)
 
-class ProductoImagenAdmin(admin.StackedInline):
+class ProductoTallaAdmin(NestedTabularInline):
+    model = ProductoTalla
+    extra = 1    
+
+class ProductoColorAdmin(NestedTabularInline):    
+    model = ProductoColor
+    extra = 1  
+
+class ProductoImagenesAdmin(NestedTabularInline):
     model = ProductoImagen
+    extra = 1      
 
-@admin.register(Producto)
-class ProductoAdmin(admin.ModelAdmin):
-    inlines = [ProductoImagenAdmin]
+class ProductoAdmin(NestedModelAdmin):
+    inlines = [ProductoImagenesAdmin, ProductoTallaAdmin, ProductoColorAdmin]
 
-    class Meta:
-        model=Producto
-
-@admin.register(ProductoImagen)
-class ProductoImagen(admin.ModelAdmin):
-    pass
+admin.site.register(Producto, ProductoAdmin)
