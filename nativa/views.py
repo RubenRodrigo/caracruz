@@ -53,6 +53,14 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
+def carrito(request):
+    if request.user.is_authenticated:
+        cliente = request.user.cliente
+        orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
+        items = orden.ordenitem_set.all()
+    context = {'items':items, 'orden':orden}    
+    return render(request, 'tienda/carrito.html', context)
+
 def tienda(request):
 
     productos = Producto.objects.all()
@@ -145,10 +153,10 @@ def updateItem(request):
     
     cliente = request.user.cliente
     product = Producto.objects.get(id=productId)
-    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
     print(cliente)
     print('Action', action)
     print('Producto', product)
+    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)        
     ordenItem, created = OrdenItem.objects.get_or_create(orden=orden, producto=product)
     if action == 'add':
         ordenItem.cantidad = (ordenItem.cantidad + 1)

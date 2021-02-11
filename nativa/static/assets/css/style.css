@@ -1427,6 +1427,81 @@ section {
 }
 
 /*--------------------------------------------------------------
+  # Carrito
+  --------------------------------------------------------------*/
+.carrito--tabla table th, .carrito--tabla table td {
+  vertical-align: middle;
+}
+
+.carrito--tabla * {
+  color: black;
+}
+
+.producto--tabla .producto__imagen {
+  display: inline-block;
+  width: 80px;
+  height: 100px;
+}
+
+.producto--tabla .producto__imagen img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.producto--tabla .producto__nombre {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.producto--tabla .producto__delete {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+}
+
+.producto--tabla .producto__delete:hover {
+  background-color: black;
+}
+
+.producto--tabla .producto__delete:hover h4 {
+  color: white;
+}
+
+.producto--tabla .producto__cantidad button, .producto--tabla .producto__cantidad h6 {
+  display: inline-block;
+  padding: 10px;
+}
+
+.producto--tabla .producto__cantidad button {
+  width: 30px;
+  height: 100%;
+  border: none;
+}
+
+.producto--tabla .producto__cantidad button h3 {
+  margin: 0;
+}
+
+.producto--tabla .confirmar {
+  padding: 7px 0;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+  color: white;
+  background-color: black;
+}
+
+.producto--tabla .confirmar:hover {
+  text-decoration: underline;
+}
+
+/*--------------------------------------------------------------
   # Distribuidores
   --------------------------------------------------------------*/
 .distribuidores {

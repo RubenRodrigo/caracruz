@@ -4,8 +4,12 @@ if(updateBtns.length >0 ){
         updateBtns[i].addEventListener('click', function () {
             var productId = this.dataset.producto
             var action = this.dataset.action
+            var size = getSize(this)
+            var color = getColor(this)            
             console.log(productId);
             console.log(action);
+            console.log(size);
+            console.log(color);
             console.log('USER:', user);
             if (user == 'AnonymousUser') {
                 addCookieItem(productId, action)
@@ -14,6 +18,15 @@ if(updateBtns.length >0 ){
             }
         })
     }    
+}
+
+function getSize(e) {
+    console.log(e.parentElement);
+    var size = e.parentElement.querySelector('.producto-tallas .talla.active')    
+    return size.dataset.size
+}
+function getColor(e) {
+    console.log(e);
 }
 
 function addCookieItem(productId, action) {

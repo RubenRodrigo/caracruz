@@ -1,0 +1,68 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+	<section>
+		<div class="container">
+			<div class="row" style="padding-top: 60px;">
+				<h2><strong>Carrito De Compras</strong></h2>
+			</div>
+			<div class="row carrito--tabla">
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col">Productos</th>
+							<th scope="col">Precio</th>
+							<th scope="col">Color/Talla</th>
+							<th scope="col">Cantidad</th>
+							<th scope="col">Total</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody class="producto--tabla">
+						{% for item in items %}
+						<tr>
+							<th scope="row">
+								<div >
+									{% with item.producto.productoimagen_set.all|first as imagen %}									
+									<a class="producto__imagen" href=""><img src="{{imagen.imagenURL}}" width="100" alt=""></a><a class="producto__nombre" href=""><h3>Cleopatra</h3></a>
+									{% endwith %}
+								</div>
+							</th>
+							<td>S/{{ item.producto.precio}}</td>
+							<td>Rojo / XL</td>
+							<td><div class="producto__cantidad">
+								<button><h3>-</h3></button>
+								<h6>{{ item.cantidad }}</h6>
+								<button><h3>+</h3></button>
+							</div></td>
+							<td>S/ {{item.get_total}}</td>
+							<td><button class="producto__delete"><h4>X</h4></button></td>
+						</tr>
+						{% endfor %}
+						<tr>
+							<th scope="row">
+								<h6>Subtotal</h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>S/ {{orden.get_cart_total}}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<th scope="row"></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td colspan="2">
+								<button class="confirmar">Confirmar Pago</button>
+							</td>							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</main>
+{% endblock content %}

@@ -81,7 +81,11 @@
 					<h6>Tallas</h6>
 					<div class="producto-tallas">
 						{% for talla in producto.productotalla_set.all %}
-							<button class="talla">{{talla.talla.nombre}}</button>
+							{% if forloop.counter == 1 %}
+								<button class="talla active" data-size={{talla.talla.id}}>{{talla.talla.nombre}}</button>
+							{% else %}
+								<button class="talla">{{talla.talla.nombre}}</button>
+							{% endif %}
 						{% endfor %}
 					</div>
 					<h6>Cantidad</h6>

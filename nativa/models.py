@@ -91,13 +91,13 @@ class Orden(models.Model):
     @property
     def get_cart_total(self):
         ordenitems = self.ordenitem_set.all()
-        total = sum([item.get_total for item in orderitems])
+        total = sum([item.get_total for item in ordenitems])
         return total
 
     @property
     def get_cart_items(self):
-        orderitems = self.ordenitem_set.all()
-        total = sum([item.quantity for item in orderitems])
+        ordenitems = self.ordenitem_set.all()
+        total = sum([item.quantity for item in ordenitems])
         return total
 
 class OrdenItem(models.Model):
