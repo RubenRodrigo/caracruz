@@ -3,10 +3,13 @@ from nested_admin import NestedModelAdmin, NestedStackedInline, NestedTabularInl
 # Register your models here.
 from .models import *
 
+admin.site.register(Cliente)
 admin.site.register(Catalogo)
 admin.site.register(Categoria)
 admin.site.register(Color)
 admin.site.register(Talla)
+admin.site.register(Orden)
+admin.site.register(OrdenItem)
 
 class ProductoTallaAdmin(NestedTabularInline):
     model = ProductoTalla

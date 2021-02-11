@@ -1,12 +1,57 @@
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404 ,render
+from django.shortcuts import get_object_or_404 ,render, redirect
+from django.http import JsonResponse
+import json
 
-from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+from .models import *
+from .forms import CreateUserForm
+
 tienda_template = 'tienda/tienda.html'
 paginate = 6
 def index(request):
     return render(request, 'tienda/index.html')
+
+def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        form = CreateUserForm()
+        if  request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'La cuenta fue creada para '+user)
+                return redirect('login')
+
+        context = {'form':form}
+        return render(request, 'cuentas/register.html', context)
+
+def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if  request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+            else:
+                messages.info(request, 'El usuario o la contraseña es incorrecta')
+        context = {}
+        return render(request, 'cuentas/login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 def tienda(request):
 
@@ -91,3 +136,26 @@ def producto(request, producto_id):
 
 def administrador(request):    
     return render(request, 'administrador/index.html')
+
+def updateItem(request):    
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+
+    
+    cliente = request.user.cliente
+    product = Producto.objects.get(id=productId)
+    orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
+    print(cliente)
+    print('Action', action)
+    print('Producto', product)
+    ordenItem, created = OrdenItem.objects.get_or_create(orden=orden, producto=product)
+    if action == 'add':
+        ordenItem.cantidad = (ordenItem.cantidad + 1)
+    elif action == 'remove':
+        ordenItem.cantidad = (ordenItem.cantidad - 1)
+    ordenItem.save()
+    if(ordenItem.cantidad <= 0):
+        ordenItem.delete()
+
+    return JsonResponse('Item Was added', safe=False)

@@ -15,13 +15,13 @@
   <link href="{% static 'assets/img/Isotipo.jpg" rel' %}="apple-touch-icon">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <!-- Google Fonts -->
-  
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -29,6 +29,40 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <script type="text/javascript">
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    let device = getCookie('device')
+
+    if (device == null || device == undefined) {
+      device = uuidv4()
+    }
+
+    document.cookie = 'device' + device + ';domain=;path=/'
+    var csrftoken = getCookie('csrftoken')
+    var user = '{{request.user}}'
+  </script>
 
 </head>
 
@@ -40,11 +74,11 @@
 
       <div class="logo mr-auto">
         <h1><a href="{% url 'index' %}">
-          <img class="img-fluid" src="{% static 'assets/img/logo.png' %}" alt="">
-        </a></h1>        
+            <img class="img-fluid" src="{% static 'assets/img/logo.png' %}" alt="">
+          </a></h1>
       </div>
 
-      <nav class="nav-menu d-none d-lg-block" >
+      <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="{% url 'index' %}">CONÓCENOS</a></li>
           <li class="drop-down"><a href="#">TIENDA</a>
@@ -52,52 +86,70 @@
               <li class="drop-down"><a href="#">Catálogo</a>
                 <ul>
                   <li><a href="{% url 'tienda' %}"">Todo</a></li>
-                  <li><a href="{% url 'tienda_catalogo' 'Damas' %}">Damas</a></li>
-                  <li><a href="{% url 'tienda_catalogo' 'Linea de Casa' %}">Linea de Casa</a></li>                  
+                  <li><a href=" {% url 'tienda_catalogo' 'Damas' %}">Damas</a></li>
+                  <li><a href="{% url 'tienda_catalogo' 'Linea de Casa' %}">Linea de Casa</a></li>
                 </ul>
-              </li>              
+              </li>
             </ul>
           </li>
-          <li><a href="{% url 'distribuidores'%}">DISTRIBUIDORES</a></li>          
+          <li><a href="{% url 'distribuidores'%}">DISTRIBUIDORES</a></li>
           <li><a href="{% url 'servicio' %}">SERVICIO AL CLIENTE</a></li>
           <li><a href="{% url 'artesanos' %}">ARTESANOS</a></li>
           <li><a href="{% url 'contactos' %}">CONTACTANOS</a></li>
-          <li><a href="{% url 'contactos' %}" class="cart"><img src="{% static 'assets/img/shopping-bag.png' %}" width="30" alt=""></a></li>
+          <li class="drop-down">
+            <a href="#">
+              {% if request.user.is_anonymous %}
+              Invitado
+              {% else %}
+              {{request.user}}
+              {% endif %}
+            </a>
+            <ul>
+              {% if request.user.is_anonymous %}
+              <li class="drop-down"><a href="{% url 'login' %}">Login</a></li>
+              {% else %}
+              <li class="drop-down"><a href="{% url 'logout' %}">Logout</a></li>
+              {% endif %}
+            </ul>
+          </li>
+          <li><a href="{% url 'contactos' %}" class="cart"><img src="{% static 'assets/img/shopping-bag.png' %}"
+                width="30" alt=""></a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
     </div>
   </header><!-- End Header -->
 
-    <!-- ======= Content ======= -->
-    {% block content %}
-    {% endblock content %}
-    <!-- ======= End Content ======= -->
+  <!-- ======= Content ======= -->
+  {% block content %}
+  {% endblock content %}
+  <!-- ======= End Content ======= -->
 
-    <!-- ======= Chat ======= -->
-    <div class="elfsight">
-      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-      <div class="elfsight-app-e2f0e62c-d583-471a-839b-82ceeb9ee68d"></div>
+  <!-- ======= Chat ======= -->
+  <div class="elfsight">
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-e2f0e62c-d583-471a-839b-82ceeb9ee68d"></div>
+  </div>
+  <!-- ======= End Chat ======= -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row justify-content-md-center p-4">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Cara Cruz</span></strong>. All Rights Reserved
+        </div>
+      </div>
     </div>
-    <!-- ======= End Chat ======= -->
+  </footer><!-- End Footer -->
 
-      <!-- ======= Footer ======= -->
-    <footer id="footer">        
-        <div class="container">
-          <div class="row justify-content-md-center p-4">
-            <div class="copyright">
-              &copy; Copyright <strong><span>Cara Cruz</span></strong>. All Rights Reserved
-              </div>
-          </div>
-        </div>        
-    </footer><!-- End Footer -->    
-
-    <!-- Vendor JS Files -->
-    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>    
-    <!-- Template Main JS File -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
-    <script src="{% static 'assets/js/productos.js' %}"></script>
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="{% static 'assets/js/productos.js' %}"></script>
+  <script src="{% static 'assets/js/carrito.js' %}"></script>
 
 </body>
 

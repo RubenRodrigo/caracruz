@@ -71,16 +71,14 @@ function funcionalidadModal(e) {
     }
 }
 
-function cambiarImagen(e) {
-    console.log(e);
+function cambiarImagen(e) {    
     if(e.target.classList.contains("producto-imagen")){            
         var imagen = e.target
         imagen.src = imagen.dataset.productosecond;            
     }
 }
 
-function volverImagen(e) {
-    console.log(e);
+function volverImagen(e) {    
     if(e.target.classList.contains("producto-imagen")){
         var imagen = e.target
         imagen.src = imagen.dataset.productofirst;
