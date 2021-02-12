@@ -51,6 +51,15 @@
   }
   .nav-menu a.cart {
     padding: 0;
+    position: relative;    
+    & .cart-cantidad{
+      font-weight: bold;      
+      position: absolute;
+      color: white;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);                
+    }
   }
   
   .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {

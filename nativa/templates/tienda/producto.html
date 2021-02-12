@@ -69,11 +69,11 @@
 						{% for color in producto.productocolor_set.all %}
 							{% if forloop.counter == 1 %}
 								<div class="colores--prenda" id="active">
-									<button class="color" data-color="{{color.color.nombre}}" style="background-color:#{{color.color.codigo}}"></button>
+									<button class="color" data-color="{{color.color.id}}" style="background-color:#{{color.color.codigo}}"></button>
 								</div>
 							{% else %}
 								<div class="colores--prenda">
-									<button class="color" data-color="{{color.color.nombre}}" style="background-color:#{{color.color.codigo}}"></button>
+									<button class="color" data-color="{{color.color.id}}" style="background-color:#{{color.color.codigo}}"></button>
 								</div>
 							{% endif %}
 						{% endfor %}
@@ -84,13 +84,13 @@
 							{% if forloop.counter == 1 %}
 								<button class="talla active" data-size={{talla.talla.id}}>{{talla.talla.nombre}}</button>
 							{% else %}
-								<button class="talla">{{talla.talla.nombre}}</button>
+								<button class="talla" data-size={{talla.talla.id}}>{{talla.talla.nombre}}</button>
 							{% endif %}
 						{% endfor %}
 					</div>
 					<h6>Cantidad</h6>
 					<div class="producto-cantidad">
-						<select name="" id="">
+						<select class="cantidad" name="" id="">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -105,5 +105,6 @@
 	</section>
 	{% endfor %}
 	<script src="{% static 'assets/js/colores.js' %}"></script>
+	<script src="{% static 'assets/js/addcarrito.js' %}"></script>
 </main>
 {% endblock content %}

@@ -13,32 +13,36 @@
 						<tr>
 							<th scope="col">Productos</th>
 							<th scope="col">Precio</th>
-							<th scope="col">Color/Talla</th>
+							<th scope="col">Color</th>
+							<th scope="col">Talla</th>
 							<th scope="col">Cantidad</th>
 							<th scope="col">Total</th>
 							<th scope="col"></th>
 						</tr>
 					</thead>
 					<tbody class="producto--tabla">
-						{% for item in items %}
-						<tr>
-							<th scope="row">
-								<div >
-									{% with item.producto.productoimagen_set.all|first as imagen %}									
-									<a class="producto__imagen" href=""><img src="{{imagen.imagenURL}}" width="100" alt=""></a><a class="producto__nombre" href=""><h3>Cleopatra</h3></a>
-									{% endwith %}
-								</div>
-							</th>
-							<td>S/{{ item.producto.precio}}</td>
-							<td>Rojo / XL</td>
-							<td><div class="producto__cantidad">
-								<button><h3>-</h3></button>
-								<h6>{{ item.cantidad }}</h6>
-								<button><h3>+</h3></button>
-							</div></td>
-							<td>S/ {{item.get_total}}</td>
-							<td><button class="producto__delete"><h4>X</h4></button></td>
-						</tr>
+						{% for item in items %}							
+							<tr>
+								<th scope="row">
+									<div >
+										{% with item.producto.productoimagen_set.all|first as imagen %}									
+										<a class="producto__imagen" href=""><img src="{{imagen.imagenURL}}" width="100" alt=""></a><a class="producto__nombre" href=""><h4>{{item.producto}}</h4></a>
+										{% endwith %}
+									</div>
+								</th>
+								<td class="producto__precio">S/{{ item.producto.precio}}</td>
+								<td class="producto__color" data-color="{{item.producto_color.id}}">{{item.producto_color}}</td>
+								<td class="producto__talla" data-color="{{item.producto_talla.id}}">{{item.producto_talla}}</td>
+								<td><div class="producto__cantidad">
+									<button class="remove"><h3>-</h3></button>
+									<h6>{{ item.cantidad }}</h6>
+									<button class="add"><h3>+</h3></button>
+								</div></td>
+								<td class="producto__total">S/ {{item.get_total}}</td>
+								<td>
+									<button class="producto__delete" data-ordenitem={{item.id}}><h4>X</h4></button>
+								</td>
+							</tr>							
 						{% endfor %}
 						<tr>
 							<th scope="row">
@@ -64,5 +68,6 @@
 			</div>
 		</div>
 	</section>
+	<script src="{% static 'assets/js/carrito.js' %}"></script>
 </main>
 {% endblock content %}

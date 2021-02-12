@@ -148,22 +148,45 @@ def administrador(request):
 def updateItem(request):    
     data = json.loads(request.body)
     productId = data['productId']
+    colorId = data['colorId']
+    tallaId = data['sizeId']
+    cantidad = data['quantity']
     action = data['action']
 
-    
+    color = Color.objects.get(id=colorId)
+    talla = Talla.objects.get(id=tallaId)
     cliente = request.user.cliente
     product = Producto.objects.get(id=productId)
+    producto_color = product.productocolor_set.get(color=color)
+    producto_talla = product.productotalla_set.get(talla=talla)
+
     print(cliente)
     print('Action', action)
     print('Producto', product)
+    print('color', color)
+    print('talla', talla)
+    print('producto_color', producto_color)
+    print('producto_talla', producto_talla)
+    print('cantidad', cantidad)
+
     orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)        
-    ordenItem, created = OrdenItem.objects.get_or_create(orden=orden, producto=product)
-    if action == 'add':
-        ordenItem.cantidad = (ordenItem.cantidad + 1)
+    ordenItem, created = OrdenItem.objects.get_or_create(orden=orden, producto=product, producto_color=producto_color, producto_talla=producto_talla)
+    ordenItem
+    if action == 'add':        
+        ordenItem.cantidad = (ordenItem.cantidad + int(cantidad))
     elif action == 'remove':
         ordenItem.cantidad = (ordenItem.cantidad - 1)
     ordenItem.save()
     if(ordenItem.cantidad <= 0):
         ordenItem.delete()
 
-    return JsonResponse('Item Was added', safe=False)
+    return JsonResponse({'quantity': orden.get_cart_items}, safe=False)
+
+def deleteItem(request): 
+    data = json.loads(request.body)    
+    ordenitemId = data['ordenitemId']
+    
+    item = OrdenItem.objects.get(id=ordenitemId)
+    item.delete()
+
+    return JsonResponse('Item Was deleted', safe=False)

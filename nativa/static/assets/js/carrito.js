@@ -1,58 +1,19 @@
-var updateBtns = document.getElementsByClassName('update-cart')
+var updateBtns = document.getElementsByClassName('producto__delete')
 if(updateBtns.length >0 ){    
     for (var i = 0; i < updateBtns.length; i++) {
         updateBtns[i].addEventListener('click', function () {
-            var productId = this.dataset.producto
-            var action = this.dataset.action
-            var size = getSize(this)
-            var color = getColor(this)            
-            console.log(productId);
-            console.log(action);
-            console.log(size);
-            console.log(color);
+            var ordenitemId = this.dataset.ordenitem
             console.log('USER:', user);
             if (user == 'AnonymousUser') {
-                addCookieItem(productId, action)
+                addCookieItem(productId, action, colorId, sizeId, quantity)
             } else {
-                updateUserOrder(productId, action)
+                deleteItemOrden(ordenitemId)
             }
         })
     }    
 }
-
-function getSize(e) {
-    console.log(e.parentElement);
-    var size = e.parentElement.querySelector('.producto-tallas .talla.active')    
-    return size.dataset.size
-}
-function getColor(e) {
-    console.log(e);
-}
-
-function addCookieItem(productId, action) {
-    console.log('Not logged in')
-    // if (action == 'add') {
-    //     if (cart[productId] == undefined) {
-    //        cart[productId] = {'quantity': 1}
-    //     } else {
-    //         cart[productId]['quantity'] += 1
-    //     }
-    // }
-    // if (action == 'remove') {
-    //     cart[productId]['quantity'] -= 1
-    //     if (cart[productId]['quantity'] <= 0) {
-    //         console.log('Remove Item');
-    //         delete cart[productId]
-    //     }
-    // }
-
-    // console.log('Cart:',cart);
-    // document.cookie = 'cart='+ JSON.stringify(cart) + ";domain=;path=/"
-}
-
-function updateUserOrder(productId, action) {
-
-    var url = '/update_item/'
+function deleteItemOrden(ordenitemId) {
+    var url = '/delete_item/'
     fetch(url, {
         method: 'POST',
         headers: {
@@ -60,15 +21,75 @@ function updateUserOrder(productId, action) {
             'X-CSRFToken': csrftoken,
         },
         body: JSON.stringify({
-            'productId': productId,
-            'action': action
+            'ordenitemId': ordenitemId,
         })
     })
     .then((respose) => {
         return respose.json()
     })
-    .then((data) => {
-        console.log(data)        
+    .then((data) => {        
+        location.reload()
     })
-
 }
+// function getSize(e) {    
+//     var size = e.parentElement.parentElement.querySelector('.producto-tallas .talla.active')    
+//     console.log("SIZE",size);
+//     return size.dataset.size
+// }
+// function getColor(e) {
+//     var color = e.parentElement.parentElement.querySelector('.producto-colores .colores--prenda#active button')    
+//     console.log("COLOR",color);
+//     return color.dataset.color
+// }
+// function getQuantity(e) {
+//     var quantity = e.parentElement.parentElement.querySelector('.producto-cantidad .cantidad')    
+//     console.log("Quantity",quantity);
+//     return quantity.value
+// }
+
+// function addCookieItem(productId, action, colorId, sizeId, quantity) {
+//     console.log('Not logged in')
+//     // if (action == 'add') {
+//     //     if (cart[productId] == undefined) {
+//     //        cart[productId] = {'quantity': 1}
+//     //     } else {
+//     //         cart[productId]['quantity'] += 1
+//     //     }
+//     // }
+//     // if (action == 'remove') {
+//     //     cart[productId]['quantity'] -= 1
+//     //     if (cart[productId]['quantity'] <= 0) {
+//     //         console.log('Remove Item');
+//     //         delete cart[productId]
+//     //     }
+//     // }
+
+//     // console.log('Cart:',cart);
+//     // document.cookie = 'cart='+ JSON.stringify(cart) + ";domain=;path=/"
+// }
+
+// function updateUserOrder(productId, action, colorId, sizeId, quantity)  {
+
+//     var url = '/update_item/'
+//     fetch(url, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'X-CSRFToken': csrftoken,
+//         },
+//         body: JSON.stringify({
+//             'productId': productId,
+//             'colorId': colorId,
+//             'sizeId': sizeId,
+//             'quantity': quantity,
+//             'action': action
+//         })
+//     })
+//     .then((respose) => {
+//         return respose.json()
+//     })
+//     .then((data) => {
+//         console.log(data)        
+//     })
+
+// }
